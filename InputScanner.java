@@ -10,23 +10,27 @@ public class InputScanner{
         input = new Scanner(is);
     }
 
-    public static String inputString(String text){
+    public InputScanner(){
+        new InputScanner(System.in);
+    }
+
+    public String inputString(String text){
         System.out.println(text + "?>");
         return input.nextLine();
     }
 
-    public static int inputInt(String age, String weight){
-        age = "Enter age";
-        weight = "Enter weight";
-        input.nextInt();
-        int userInputInt = input.nextInt();
-        return userInputInt;
+    public int inputInt(String text){
+        System.out.println(text + "?>");
+        int userInput = input.nextInt();
+        input.nextLine();
+        return userInput;
     }
 
-    public static double inputDouble(){
-        input.nextInt();
-        double userInputDouble = input.nextDouble();
-        return userInputDouble;
+    public double inputDouble(String text){
+        System.out.println(text + "?>");
+        double userInput = input.nextDouble();
+        input.nextLine();
+        return userInput;
     }
 
 }

@@ -1,27 +1,13 @@
 
 public class Main {
-    public static void main(String[] args){   
-        
-        //Scanner dogInput = new Scanner(System.in);
+    public static void main(String[] args){
+        InputScanner scanner = new InputScanner();
 
-        InputScanner scanner = new InputScanner(System.in);
-        String hungrig = InputScanner.inputString("Hej Martin, hur hungrig är du?");
-        System.out.println(hungrig);
+        String dogName = scanner.inputString("Enter name of dog: ");
+        String dogBreed = scanner.inputString("Enter breed of dog: ");
+        int dogAge = scanner.inputInt("Enter age of dog: ");
+        int dogWeight = scanner.inputInt("Enter weight of dog: ");
 
-        // System.out.print("Enter name of dog: "); 
-        // String dogName = dogInput.nextLine();
-
-
-
-        // System.out.print("Enter breed of dog: "); 
-        // String dogBreed = dogInput.nextLine();
-
-        // System.out.print("Enter age of dog: "); 
-        // int dogAge = dogInput.nextInt();
-
-        // System.out.print("Enter weight of dog: "); 
-        // int dogWeight = dogInput.nextInt();
-        
        
         // Scanner ownerInput = new Scanner(System.in);
 
@@ -35,8 +21,8 @@ public class Main {
         // dogInput.close();
         // ownerInput.close();
 
-        // Dog dog = new Dog (dogName, dogBreed, dogAge, dogWeight);
-        // System.out.println(dog.toString());
+        Dog dog = new Dog (dogName, dogBreed, dogAge, dogWeight);
+        System.out.println(dog.toString());
 
         // Owner owner = new Owner (ownerName, ownerAge);
         // System.out.println(owner.toString());
