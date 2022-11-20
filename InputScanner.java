@@ -11,7 +11,7 @@ public class InputScanner{
     private static final List<InputStream> list = new ArrayList<>();
     
     public InputScanner(InputStream is){
-        if (!list.contains(is))
+        if (list.contains(is))
             throw new IllegalStateException("Scanner already exists");
         list.add(is);
         input = new Scanner(is);

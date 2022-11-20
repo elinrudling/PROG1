@@ -2,7 +2,7 @@
 public class Main {
     public static void main(String[] args){
         InputScanner scanner = new InputScanner();
-        InputScanner scanner2 = new InputScanner();
+        InputScanner scanner2 = new InputScanner(System.in);
 
 //        String dogName = scanner.inputString("Enter name of dog: ");
 //        String dogBreed = scanner.inputString("Enter breed of dog: ");
