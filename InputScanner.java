@@ -1,14 +1,19 @@
 //Elin Rudling elru4802
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputScanner{
-    private static Scanner input;
+    private Scanner input;
+
+    private static final List<InputStream> list = new ArrayList<>();
     
     public InputScanner(InputStream is){
-        if (input != null)
+        if (!list.contains(is))
             throw new IllegalStateException("Scanner already exists");
+        list.add(is);
         input = new Scanner(is);
     }
 
