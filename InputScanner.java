@@ -1,3 +1,5 @@
+//Elin Rudling elru4802
+
 import java.io.InputStream;
 import java.util.Scanner;
 
