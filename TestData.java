@@ -20,6 +20,8 @@ public final class TestData {
 	public static final String READ_TEXT_METHOD_NAME = "inputString";
 	public static final String READ_INTEGER_METHOD_NAME = "inputInt";
 	public static final String READ_DECIMAL_METHOD_NAME = "inputDouble";
+	public static final String MAIN_DOG_LIST_NAME = "dogList";
+	public static final String REGISTER_NEW_DOG_METHOD_NAME = "registerNewDog";
 
 	// Här lägger du in ytterligare konstanter när uppgiftsinstruktionerna ber om
 	// det.

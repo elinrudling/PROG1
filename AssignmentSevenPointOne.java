@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssignmentSevenPointOne{
+    private InputScanner scanner = new InputScanner(System.in);
+    private List<Dog> dogList = new ArrayList<>();
 
-    private static List<Dog> dogList = new ArrayList<>();
-
-    public static void registerNewDog(InputScanner scanner){
+    public void registerNewDog(){
         String dogName = scanner.inputString("Name");
         String dogBreed = scanner.inputString("Breed");
         int dogAge = scanner.inputInt("Age");

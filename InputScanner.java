@@ -10,7 +10,6 @@ public class InputScanner{
     private Scanner input;
 
     public InputScanner(InputStream is){
-        System.out.println(is);
         if (list.contains(is)) {
             throw new IllegalStateException("Scanner already exists");
         }
