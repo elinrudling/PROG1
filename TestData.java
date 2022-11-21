@@ -13,9 +13,8 @@
  */
 public final class TestData {
 
-
 	// Dessa fyra namn måste vara korrekt satta för att kunna testa alla uppgifter
-	// som ska läsa in data från användaren, till exempel U6.
+	// som ska läsa in data från användaren, till exempel U6.3
 
 	public static final String SCANNER_ADAPTER_CLASS_NAME = "InputScanner";
 	public static final String READ_TEXT_METHOD_NAME = "inputString";
