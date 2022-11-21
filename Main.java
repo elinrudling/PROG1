@@ -2,9 +2,9 @@
 
 public class Main {
     public static void main(String[] args){
-        InputScanner scanner = new InputScanner();
-        
-        AssignmentSevenPointOne.registerNewDog();
+        InputScanner scanner = new InputScanner(System.in);
+
+        AssignmentSevenPointOne.registerNewDog(scanner);
 
     }
 

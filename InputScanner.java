@@ -10,10 +10,14 @@ public class InputScanner{
     private Scanner input;
 
     public InputScanner(InputStream is){
-        if (list.contains(is))
+        System.out.println(is);
+        if (list.contains(is)) {
             throw new IllegalStateException("Scanner already exists");
+        }
+
         list.add(is);
-        input = new Scanner(is);
+        this.input = new Scanner(is);
+
     }
 
     public InputScanner(){
