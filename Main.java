@@ -2,8 +2,8 @@
 
 public class Main {
     public static void main(String[] args){
-        InputScanner scanner = new InputScanner(System.in);
-
+        //InputScanner scanner = new InputScanner(System.in);
+        System.out.println(AssignmentSevenPointTwo.hej);
 
     }
 
