@@ -1,4 +1,4 @@
-
+// Elin Rudling elru4802
 /**
  * Denna klass är bara till för att möjliggöra testning av de klasser och
  * metoder som du själv får namnge. Många av JUnit-testfallen till
