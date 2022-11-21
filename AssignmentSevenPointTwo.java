@@ -20,22 +20,21 @@ public class AssignmentSevenPointTwo {
     public void listDogs() {
 
         if (dogList.size() == 0) {
-            throw new IllegalStateException("Error: no dogs in register");
-        }
+            System.out.println("Error: no dogs in register");
+        } else  {
+            double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
-        double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
+            List<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
 
-        List<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
-
-        if (dogsWithCorrectLength.size() > 0) {
-            System.out.println("The following dogs have such a large tail:");
-            for (Dog d : dogsWithCorrectLength) {
-                System.out.println(d.toString());
+            if (dogsWithCorrectLength.size() > 0) {
+                System.out.println("The following dogs have such a large tail:");
+                for (Dog d : dogsWithCorrectLength) {
+                    System.out.println(d.toString());
+                }
+            } else {
+                System.out.println("Error: no dog has a tail that long");
             }
-        } else {
-            throw new IllegalStateException("Error: no dog has a tail that long");
         }
-
     }
 
     private List<Dog> getDogsWithLength(double smallestTailLength) {
