@@ -20,7 +20,7 @@ public class InputScanner{
     }
 
     public InputScanner(){
-        new InputScanner(System.in);
+        this(System.in);
     }
 
     public String inputString(String text){
