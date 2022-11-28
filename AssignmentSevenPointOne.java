@@ -24,6 +24,4 @@ public class AssignmentSevenPointOne {
         Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
         dogList.add(dog);
     }
-
-
 }
