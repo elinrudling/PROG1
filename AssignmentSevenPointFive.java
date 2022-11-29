@@ -75,4 +75,15 @@ public class AssignmentSevenPointFive {
 
         }
     }
+
+    public void removeDog(){
+        String nameOfDog = scanner.inputString("Enter the name of the dog");
+        Dog dog = findDog(nameOfDog);
+        if (dog != null){
+            dogList.remove(dog);
+        } else {
+            System.out.println("Error: no such dog");
+        }
+    }
+
 }

@@ -25,6 +25,7 @@ public final class TestData {
 	public static final String LIST_DOGS_METHOD_NAME = "listDogs";
 	public static final String FIND_DOG_METHOD_NAME = "findDog";
 	public static final String INCREASE_AGE_METHOD_NAME = "increaseAge";
+	public static final String REMOVE_DOG_METHOD_NAME = "removeDog";
 
 	// Här lägger du in ytterligare konstanter när uppgiftsinstruktionerna ber om
 	// det.
