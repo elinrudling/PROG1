@@ -23,6 +23,7 @@ public final class TestData {
 	public static final String MAIN_DOG_LIST_NAME = "dogList";
 	public static final String REGISTER_NEW_DOG_METHOD_NAME = "registerNewDog";
 
+
 	// Här lägger du in ytterligare konstanter när uppgiftsinstruktionerna ber om
 	// det.
 
