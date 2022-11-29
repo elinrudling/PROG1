@@ -2,8 +2,9 @@
 
 import java.util.ArrayList;
 
-public class AssignmentSevenPointThree {
+public class Project {
 
+    //7.1
     private InputScanner scanner = new InputScanner(System.in);
     private ArrayList<Dog> dogList = new ArrayList<>();
 
@@ -26,6 +27,7 @@ public class AssignmentSevenPointThree {
         dogList.add(dog);
     }
 
+    //7.2
     public void listDogs() {
 
         if (dogList.size() == 0) {
@@ -56,6 +58,7 @@ public class AssignmentSevenPointThree {
         return dogsWithCorrectLength;
     }
 
+    //7.3
     public Dog findDog(String nameOfDog) {
         for (Dog dog : dogList) {
             if (nameOfDog.equalsIgnoreCase(dog.getName())) {
