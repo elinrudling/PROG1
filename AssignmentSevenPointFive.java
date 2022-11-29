@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class AssignmentSevenPointFour {
+public class AssignmentSevenPointFive {
 
     private InputScanner scanner = new InputScanner(System.in);
     private ArrayList<Dog> dogList = new ArrayList<>();
