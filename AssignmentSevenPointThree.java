@@ -1,18 +1,27 @@
 // Elin Rudling elru4802
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AssignmentSevenPointThree {
+
     private InputScanner scanner = new InputScanner(System.in);
-    private List<Dog> dogList = new ArrayList<>();
+    private ArrayList<Dog> dogList = new ArrayList<>();
+
+    private String fetchFormattedString(String inputCommand, String errorMessage) {
+        String formattedString = scanner.inputString(inputCommand).trim();
+        while (formattedString.length() < 1) {
+            System.out.println(errorMessage);
+            formattedString = scanner.inputString(inputCommand).trim();
+        }
+
+        return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
+    }
 
     public void registerNewDog() {
-        String dogName = scanner.inputString("Name");
-        String dogBreed = scanner.inputString("Breed");
+        String dogName = fetchFormattedString("Name", "Error: the name can’t be empty");
+        String dogBreed = fetchFormattedString("Breed", "Error: the breed can’t be empty");
         int dogAge = scanner.inputInt("Age");
         int dogWeight = scanner.inputInt("Weight");
-
         Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
         dogList.add(dog);
     }
@@ -21,10 +30,10 @@ public class AssignmentSevenPointThree {
 
         if (dogList.size() == 0) {
             System.out.println("Error: no dogs in register");
-        } else  {
+        } else {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
-            List<Dog> dogsWithCorrectLength = getDogsWithCorrectLength(smallestTailLength);
+            ArrayList<Dog> dogsWithCorrectLength = getDogsWithCorrectLength(smallestTailLength);
 
             if (dogsWithCorrectLength.size() > 0) {
                 System.out.println("The following dogs have such a large tail:");
@@ -37,8 +46,8 @@ public class AssignmentSevenPointThree {
         }
     }
 
-    private List<Dog> getDogsWithCorrectLength(double smallestTailLength) {
-        List<Dog> dogsWithCorrectLength = new ArrayList<>();
+    private ArrayList<Dog> getDogsWithCorrectLength(double smallestTailLength) {
+        ArrayList<Dog> dogsWithCorrectLength = new ArrayList<>();
         for (Dog d : dogList) {
             if (d.getTailLength() >= smallestTailLength) {
                 dogsWithCorrectLength.add(d);
@@ -47,5 +56,6 @@ public class AssignmentSevenPointThree {
         return dogsWithCorrectLength;
     }
 
+    
 
 }

@@ -2,11 +2,10 @@
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class InputScanner {
-    private static List<InputStream> list = new ArrayList<>();
+    private static ArrayList<InputStream> list = new ArrayList<>();
     private Scanner input;
 
     public InputScanner(InputStream is) {
