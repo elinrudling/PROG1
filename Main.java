@@ -4,7 +4,8 @@ import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args){
-        //InputScanner scanner = new InputScanner(System.in);
+        AssignmentSevenPointThree hej = new AssignmentSevenPointThree();
+        hej.findDog(String foundDog);
 
     }
 

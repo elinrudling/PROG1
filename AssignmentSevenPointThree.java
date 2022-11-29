@@ -56,6 +56,14 @@ public class AssignmentSevenPointThree {
         return dogsWithCorrectLength;
     }
 
-    
+    public Dog findDog(String foundDog) {
+        foundDog = scanner.inputString("Find dog");
+        for (Dog n : dogList) {
+            if (foundDog.equals(n.getName())) {
+                return n;
+            }
+        }
+        return null;
+    }
 
 }
