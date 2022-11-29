@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssignmentSevenPointTwo {
+public class AssignmentSevenPointThree {
     private InputScanner scanner = new InputScanner(System.in);
     private List<Dog> dogList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class AssignmentSevenPointTwo {
         } else  {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
-            List<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
+            List<Dog> dogsWithCorrectLength = getDogsWithCorrectLength(smallestTailLength);
 
             if (dogsWithCorrectLength.size() > 0) {
                 System.out.println("The following dogs have such a large tail:");
@@ -37,7 +37,7 @@ public class AssignmentSevenPointTwo {
         }
     }
 
-    private List<Dog> getDogsWithLength(double smallestTailLength) {
+    private List<Dog> getDogsWithCorrectLength(double smallestTailLength) {
         List<Dog> dogsWithCorrectLength = new ArrayList<>();
         for (Dog d : dogList) {
             if (d.getTailLength() >= smallestTailLength) {
@@ -46,4 +46,6 @@ public class AssignmentSevenPointTwo {
         }
         return dogsWithCorrectLength;
     }
+
+
 }
