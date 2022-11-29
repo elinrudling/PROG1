@@ -68,4 +68,16 @@ public class Project {
         return null;
     }
 
+    //7.4
+    public void increaseAge() {
+        String nameOfDog = scanner.inputString("Enter the name of the dog");
+        Dog dog = findDog(nameOfDog);
+        if (dog != null){
+            dog.changeAge();
+        } else {
+            System.out.println("Error: no such dog");
+
+        }
+    }
+
 }
