@@ -16,7 +16,6 @@ public class InputScanner{
 
         list.add(is);
         this.input = new Scanner(is);
-
     }
 
     public InputScanner(){
