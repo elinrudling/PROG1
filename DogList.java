@@ -2,38 +2,43 @@
 
 public class DogList {
 
-    Dog[] dogList = new Dog[0];
+    private Dog[] dogList = new Dog[0];
 
     public void addDog(Dog dogToAdd) {
-        Dog[] newDogList = new Dog[dogList.length + 1];
-        newDogList[dogList.length] = dogToAdd;
-        //System.arraycopy(dogList, 0, newDogList, 0, dogList.length);
-        dogList = newDogList;
+        if (dogToAdd != null && !checkDog(dogToAdd)) {
+            Dog[] newDogList = new Dog[dogList.length + 1];
+            newDogList[dogList.length] = dogToAdd;
+            System.arraycopy(dogList, 0, newDogList, 0, dogList.length);
+            dogList = newDogList;
+        }
     }
 
     public void removeDog(Dog dogToRemove) {
-        Dog[] newDogList = new Dog[dogList.length - 1];
-        boolean found = false;
-        for (int i = 0; i < dogList.length; i++){
-            if (!found) {
-                if (dogList[i].getName().equalsIgnoreCase(dogToRemove.getName())){
-                    found = true;
-                    continue;
+        if (dogToRemove != null && checkDog(dogToRemove)) {
+            Dog[] newDogList = new Dog[dogList.length - 1];
+            boolean found = false;
+            for (int i = 0; i < dogList.length; i++) {
+                if (!found) {
+                    if (dogList[i].getName().equalsIgnoreCase(dogToRemove.getName())) {
+                        found = true;
+                        continue;
+                    }
+                    newDogList[i] = dogList[i];
+                } else {
+                    newDogList[i - 1] = dogList[i];
                 }
-                newDogList[i] = dogList[i];
-            } else {
-                newDogList[i-1] = dogList[i];
             }
+            dogList = newDogList;
         }
-        dogList = newDogList;
     }
 
-    public Dog dogExists(String nameOfDog) {
-        for (Dog dog : dogList) {
-            if (nameOfDog.equalsIgnoreCase(dog.getName())) {
-                return dog;
+    public boolean checkDog(Dog dog) {
+        for (Dog d : dogList) {
+            if (dog.getName().equalsIgnoreCase(d.getName())) {
+                return true;
             }
         }
-        return null;
+        return false;
+
     }
 }
