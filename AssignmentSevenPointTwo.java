@@ -10,7 +10,7 @@ public class AssignmentSevenPointTwo {
 
         if (dogList.size() == 0) {
             System.out.println("Error: no dogs in register");
-        } else  {
+        } else {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
             ArrayList<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
