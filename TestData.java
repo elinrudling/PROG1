@@ -13,16 +13,10 @@
  */
 public final class TestData {
 
-	// Dessa fyra namn måste vara korrekt satta för att kunna testa alla uppgifter
-	// som ska läsa in data från användaren, till exempel U6.3
-
 	public static final String MAIN_DOG_LIST_NAME = "dogList";
 	public static final String SWAP_DOGS_OWN_METHOD_NAME = "swapDogs";
 	public static final String SWAP_DOGS_USING_CLASS_LIBRARY_METHOD_NAME = "swapDogsUsingClassLibrary";
 	public static final String FIND_SMALLEST_METHOD_NAME = "findSmallestDog";
 	public static final String SORT_DOGS_METHOD_NAME = "sortDogs";
-
-	// Här lägger du in ytterligare konstanter när uppgiftsinstruktionerna ber om
-	// det.
 
 }
