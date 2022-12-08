@@ -52,14 +52,8 @@ public class Dog {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Name of dog: " + this.getName());
-        sb.append(" Breed of dog: " + this.getBreed());
-        sb.append(" Age of dog: " + this.getAge());
-        sb.append(" Weight of dog: " + this.getWeight());
-        sb.append(" Taillength of dog: " + this.getTailLength());
-
-        return sb.toString();
+        return String.format("* %s (%s, %2d years, %2d kilo, %.2f cm tail)",
+                this.getName(), this.getBreed(), this.getAge(), this.getWeight(), this.getTailLength());
     }
 
 }
