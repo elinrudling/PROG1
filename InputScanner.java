@@ -15,7 +15,6 @@ public class InputScanner {
 
         list.add(is);
         this.input = new Scanner(is);
-
     }
 
     public InputScanner() {
@@ -40,5 +39,4 @@ public class InputScanner {
         input.nextLine();
         return userInput;
     }
-
 }
