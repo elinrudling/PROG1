@@ -72,7 +72,7 @@ public class Project {
     public void increaseAge() {
         String nameOfDog = scanner.inputString("Enter the name of the dog");
         Dog dog = findDog(nameOfDog);
-        if (dog != null){
+        if (dog != null) {
             dog.changeAge();
         } else {
             System.out.println("Error: no such dog");
@@ -81,10 +81,10 @@ public class Project {
     }
 
     //7.5
-    public void removeDog(){
+    public void removeDog() {
         String nameOfDog = scanner.inputString("Enter the name of the dog");
         Dog dog = findDog(nameOfDog);
-        if (dog != null){
+        if (dog != null) {
             dogList.remove(dog);
         } else {
             System.out.println("Error: no such dog");
