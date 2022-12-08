@@ -13,9 +13,6 @@
  */
 public final class TestData {
 
-	// Dessa fyra namn måste vara korrekt satta för att kunna testa alla uppgifter
-	// som ska läsa in data från användaren, till exempel U6.3
-
 	public static final String SCANNER_ADAPTER_CLASS_NAME = "InputScanner";
 	public static final String READ_TEXT_METHOD_NAME = "inputString";
 	public static final String READ_INTEGER_METHOD_NAME = "inputInt";
@@ -26,9 +23,5 @@ public final class TestData {
 	public static final String FIND_DOG_METHOD_NAME = "findDog";
 	public static final String INCREASE_AGE_METHOD_NAME = "increaseAge";
 	public static final String REMOVE_DOG_METHOD_NAME = "removeDog";
-
-
-	// Här lägger du in ytterligare konstanter när uppgiftsinstruktionerna ber om
-	// det.
 
 }
