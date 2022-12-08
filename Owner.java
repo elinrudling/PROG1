@@ -1,24 +1,27 @@
-public class Owner{
-    String name;
-    int age;
+// Elin Rudling elru4802
 
-    Owner(String name, int age){
+public class Owner {
+    private String name;
+    private int age;
+
+    Owner(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public String getName(){
+    public void changeAge() {
+        this.age++;
+    }
+
+    public String getName() {
         return this.name;
     }
 
-    public int getAge(){
+    public int getAge() {
         return this.age;
     }
 
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("\nName of owner: " + this.getName());
-        sb.append("\nAge of owner: " + this.getAge());
-        return sb.toString();
+    public String toString() {
+        return String.format("Name: %s\nAge: %2d years)", this.getName(), this.getAge());
     }
 }
