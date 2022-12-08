@@ -52,7 +52,8 @@ public class Dog {
     }
 
     public String toString() {
-        return String.format("* %s (%s, %2d years, %2d kilo, %.2f cm tail)", this.getName(), this.getBreed(), this.getAge(), this.getWeight(), this.getTailLength());
+        return String.format("* %s (%s, %2d years, %2d kilo, %.2f cm tail)",
+                this.getName(), this.getBreed(), this.getAge(), this.getWeight(), this.getTailLength());
     }
 
 }
