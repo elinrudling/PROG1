@@ -1,39 +1,46 @@
 // Elin Rudling elru4802
 
-public class AssignmentSevenPointSeven{
+import java.util.Collections;
+import java.util.ArrayList;
 
-    private Dog[] dogList = new Dog[0];
+public class AssignmentSevenPointSeven {
 
-    public void addDog(Dog dogToAdd) {
-        if (dogToAdd != null && !checkDog(dogToAdd)) {
-            Dog[] newDogList = new Dog[dogList.length + 1];
-            newDogList[dogList.length] = dogToAdd;
-            System.arraycopy(dogList, 0, newDogList, 0, dogList.length);
-            dogList = newDogList;
-        }
+    private ArrayList<Dog> dogList = new ArrayList<>();
+
+    public void swapDogs(int smallerDog, int biggerDog) {
+        Dog dog = dogList.get(smallerDog);
+        dogList.set(smallerDog, dogList.get(biggerDog));
+        dogList.set(biggerDog, dog);
     }
 
-    public boolean checkDog(Dog dog) {
-        for (Dog d : dogList) {
-            if (dog.getName().equalsIgnoreCase(d.getName())) {
+    public void swapDogsUsingClassLibrary(ArrayList<Object> dogList, int smallerDog, int biggerDog) {
+        Collections.swap(dogList, smallerDog, biggerDog);
+    }
+
+    public boolean compareDogs(Dog a, Dog b) {
+        if (a.getTailLength() == b.getTailLength()) {
+            if (a.getName().compareTo(b.getName()) < 0) {
                 return true;
             }
+            return false;
+        }
+        if (a.getTailLength() < b.getTailLength()) {
+            return true;
         }
         return false;
     }
-    public void swapDogs(){
 
+    public int sortFromIndex(int i) {
+        Dog smallestDog = dogList.get(i);
+        for (int j = i + 1; j < dogList.size() - 1; j++) {
+            if (compareDogs(dogList.get(j), smallestDog)) {
+                smallestDog = dogList.get(j);
+            }
+        }
+        return dogList.indexOf(smallestDog);
     }
 
-    public void swapDogsUsingClassLibrary(){
-
-    }
-
-    public void findSmallestDog(){
-
-    }
-
-    public void sortDogs(){
+    public void sortDogs() {
 
     }
 
