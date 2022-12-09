@@ -17,8 +17,8 @@ public class AssignmentEightPointOne {
 
     public void registerNewOwner() {
         String ownerName = fetchFormattedString("Name", "Error: the name can’t be empty");
-        int ownerAge = scanner.inputInt("Age");
-        Owner owner = new Owner(ownerName, ownerAge);
+        Owner owner = new Owner(ownerName);
         ownerList.add(owner);
+        System.out.println(ownerName + " added to the register");
     }
 }
