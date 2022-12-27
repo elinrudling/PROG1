@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class AssignmentSevenPointSeven {
 
     private ArrayList<Dog> dogList = new ArrayList<>();
+    public static int counter = 0;
 
     public void swapDogs(int smallerDog, int biggerDog) {
         Dog dog = dogList.get(smallerDog);
@@ -35,6 +36,7 @@ public class AssignmentSevenPointSeven {
         Dog smallestDog = dogList.get(i);
         for (int j = i + 1; j < dogList.size(); j++) {
             if (compareDogs(dogList.get(j), smallestDog)) {
+                counter++;
                 smallestDog = dogList.get(j);
             }
         }
@@ -42,9 +44,13 @@ public class AssignmentSevenPointSeven {
         return dogList.indexOf(smallestDog);
     }
 
-    public void sortDogs(){
+    public int sortDogs(){
+        counter = 0;
+
         for (int i = 0; i < dogList.size() - 1; i++) {
+
             swapDogs(sortFromIndex(i), i);
         }
+        return counter;
     }
 }
