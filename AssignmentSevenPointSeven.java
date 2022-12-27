@@ -1,5 +1,6 @@
 // Elin Rudling elru4802
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class AssignmentSevenPointSeven {
 
     public boolean compareDogs(Dog a, Dog b) {
         if (a.getTailLength() == b.getTailLength()) {
-            if (a.getName().compareTo(b.getName()) < 0) {
+            if (a.getName().compareToIgnoreCase(b.getName()) < 0) {
                 return true;
             }
             return false;
@@ -32,16 +33,18 @@ public class AssignmentSevenPointSeven {
 
     public int sortFromIndex(int i) {
         Dog smallestDog = dogList.get(i);
-        for (int j = i + 1; j < dogList.size() - 1; j++) {
+        for (int j = i + 1; j < dogList.size(); j++) {
             if (compareDogs(dogList.get(j), smallestDog)) {
                 smallestDog = dogList.get(j);
             }
         }
+
         return dogList.indexOf(smallestDog);
     }
 
-    public void sortDogs() {
-
+    public void sortDogs(){
+        for (int i = 0; i < dogList.size() - 1; i++) {
+            swapDogs(sortFromIndex(i), i);
+        }
     }
-
 }
