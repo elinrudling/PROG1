@@ -7,6 +7,7 @@ public class Dog {
     private int age;
     private int weight;
     private double tailLength;
+    private Owner owner;
 
     public Dog(String name, String breed, int age, int weight) {
         this.name = name;
@@ -49,6 +50,15 @@ public class Dog {
 
     public double getTailLength() {
         return this.tailLength;
+    }
+
+    public Owner getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+        this.owner.addOwnedDog(this);
     }
 
     public String toString() {

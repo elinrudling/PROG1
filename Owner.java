@@ -1,7 +1,10 @@
 // Elin Rudling elru4802
 
+import java.util.ArrayList;
+
 public class Owner {
     private String name;
+    private ArrayList<Dog> ownedDogs = new ArrayList<>();
 
     public Owner(String name) {
         this.name = name;
@@ -13,5 +16,23 @@ public class Owner {
 
     public String toString() {
         return String.format("Name: %s)", this.getName());
+    }
+
+    public void addOwnedDog(Dog dog) {
+        for (Dog d : ownedDogs) {
+            if (dog.getName().equalsIgnoreCase(d.getName())) {
+                return;
+            }
+        }
+        ownedDogs.add(dog);
+    }
+
+    // for test
+    public void listDogs(){
+        if (ownedDogs.size() > 0) {
+            for (Dog d : ownedDogs) {
+                System.out.println(d);
+            }
+        }
     }
 }
