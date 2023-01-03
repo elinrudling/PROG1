@@ -45,28 +45,25 @@ public class AssignmentEightPointThree {
 
     public void giveDog() {
         String dogName = fetchFormattedString("Enter the name of the dog", "Error: no dog with that name");
-
         Dog dog = findDog(dogName);
-
         if (dog == null) {
             System.out.println("Error: no dog with that name");
             return;
         }
-
         if (dog.getOwner() != null) {
             System.out.println("Error: the dog already has an owner");
             return;
         }
 
         String ownerName = fetchFormattedString("Enter the name of the new owner", "Error: no such owner");
-
         Owner owner = findOwner(ownerName);
-
         if (owner == null) {
             System.out.println("Error: no such owner");
             return;
         }
 
         dog.setOwner(owner);
+
+        System.out.println(owner.getName() + " now owns " + dog.getName());
     }
 }

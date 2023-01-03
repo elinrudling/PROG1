@@ -26,13 +26,4 @@ public class Owner {
         }
         ownedDogs.add(dog);
     }
-
-    // for test
-    public void listDogs(){
-        if (ownedDogs.size() > 0) {
-            for (Dog d : ownedDogs) {
-                System.out.println(d);
-            }
-        }
-    }
 }
