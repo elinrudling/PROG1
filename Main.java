@@ -2,21 +2,18 @@
 
 public class Main {
     public static void main(String[] args){
-        AssignmentEightPointThree hej = new AssignmentEightPointThree();
+        AssignmentEightPointThree testprogram = new AssignmentEightPointThree();
 
         Dog d = new Dog("Martin", "asd", 5, 4);
         Dog a = new Dog("Elin", "jkl", 4, 7);
-        hej.addDog(d);
-        hej.addDog(a);
+        testprogram.addDog(d);
+        testprogram.addDog(a);
 
         Owner o = new Owner("klö");
-        hej.addOwner(o);
+        testprogram.addOwner(o);
 
-        hej.giveDog();
+        testprogram.giveDog();
 
-        o.listDogs();
-        hej.giveDog();
-        o.listDogs();
     }
 
 }
