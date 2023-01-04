@@ -20,12 +20,12 @@ public class Owner {
     public void addDogToOwner(Dog dog) {
         if (dog != null) {
 
-            if (!ownedDogs.checkDog(dog)) {
-                ownedDogs.addDogToOwnedDogs(dog);
+            if (dog.getOwner() == null) {
+                dog.setOwner(this);
             }
 
-            if (!dog.getOwner().equals(this)) {
-                dog.setOwner(this);
+            if (!ownedDogs.checkDog(dog) && dog.getOwner().equals(this)) {
+                ownedDogs.addDogToOwnedDogs(dog);
             }
         }
     }
