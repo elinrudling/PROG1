@@ -4,13 +4,16 @@ public class Main {
     public static void main(String[] args){
         AssignmentEightPointThree testprogram = new AssignmentEightPointThree();
 
-        Dog d = new Dog("Martin", "asd", 5, 4);
-        Dog a = new Dog("Elin", "jkl", 4, 7);
-        testprogram.addDog(d);
-        testprogram.addDog(a);
+        Dog a = new Dog("Zimba", "asd", 5, 4);
+        Dog b = new Dog("Nala", "jkl", 4, 7);
+        Owner c = new Owner("Elin");
+        Owner d = new Owner("Martin");
 
-        Owner o = new Owner("klö");
-        testprogram.addOwner(o);
+        testprogram.addDog(a);
+        testprogram.addDog(b);
+
+        testprogram.addOwner(c);
+        testprogram.addOwner(d);
 
         testprogram.giveDog();
 

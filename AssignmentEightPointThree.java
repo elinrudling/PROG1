@@ -1,5 +1,12 @@
 // Elin Rudling elru4802
 
+// har hunden redan en ägare? Dog -----
+// äger jag redan hunden? Owner
+// lägg till hunden i arrayen, i Owner
+// har hunden redan mig som ägare? i Owner -----
+// be hunden sätta mig som ägare -----
+
+
 import java.util.ArrayList;
 
 public class AssignmentEightPointThree {

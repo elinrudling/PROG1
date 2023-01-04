@@ -1,13 +1,12 @@
 // Elin Rudling elru4802
 
-import java.util.ArrayList;
-
 public class Owner {
     private String name;
-    private ArrayList<Dog> ownedDogs = new ArrayList<>();
+    private DogList ownedDogs;
 
     public Owner(String name) {
         this.name = name;
+        this.ownedDogs = new DogList();
     }
 
     public String getName() {
@@ -18,12 +17,16 @@ public class Owner {
         return String.format("Name: %s)", this.getName());
     }
 
-    public void addOwnedDog(Dog dog) {
-        for (Dog d : ownedDogs) {
-            if (dog.getName().equalsIgnoreCase(d.getName())) {
-                return;
+    public void addDogToOwner(Dog dog) {
+        if (dog != null) {
+
+            if (!ownedDogs.checkDog(dog)) {
+                ownedDogs.addDogToOwnedDogs(dog);
+            }
+
+            if (!dog.getOwner().equals(this)) {
+                dog.setOwner(this);
             }
         }
-        ownedDogs.add(dog);
     }
 }

@@ -17,7 +17,7 @@ public class Dog {
         this.tailLength = setTailLength(breed, age, weight);
     }
 
-    private static double setTailLength(String breed, int age, int weight) {
+    private double setTailLength(String breed, int age, int weight) {
         double tailLength;
         if (breed.equalsIgnoreCase("tax") || breed.equalsIgnoreCase("dachshund")) {
             tailLength = DACHSHUND_TAIL_LENGTH;
@@ -57,8 +57,10 @@ public class Dog {
     }
 
     public void setOwner(Owner owner) {
-        this.owner = owner;
-        this.owner.addOwnedDog(this);
+        if (this.owner == null && owner != null) {
+            this.owner = owner;
+            owner.addDogToOwner(this);
+        }
     }
 
     public String toString() {

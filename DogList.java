@@ -2,38 +2,38 @@
 
 public class DogList {
 
-    private Dog[] dogList = new Dog[0];
+    private Dog[] ownedDogs = new Dog[0];
 
-    public void addDog(Dog dogToAdd) {
+    public void addDogToOwnedDogs(Dog dogToAdd) {
         if (dogToAdd != null && !checkDog(dogToAdd)) {
-            Dog[] newDogList = new Dog[dogList.length + 1];
-            newDogList[dogList.length] = dogToAdd;
-            System.arraycopy(dogList, 0, newDogList, 0, dogList.length);
-            dogList = newDogList;
+            Dog[] newDogList = new Dog[ownedDogs.length + 1];
+            newDogList[ownedDogs.length] = dogToAdd;
+            System.arraycopy(ownedDogs, 0, newDogList, 0, ownedDogs.length);
+            ownedDogs = newDogList;
         }
     }
 
     public void removeDog(Dog dogToRemove) {
         if (dogToRemove != null && checkDog(dogToRemove)) {
-            Dog[] newDogList = new Dog[dogList.length - 1];
+            Dog[] newDogList = new Dog[ownedDogs.length - 1];
             boolean found = false;
-            for (int i = 0; i < dogList.length; i++) {
+            for (int i = 0; i < ownedDogs.length; i++) {
                 if (!found) {
-                    if (dogList[i].getName().equalsIgnoreCase(dogToRemove.getName())) {
+                    if (ownedDogs[i].getName().equalsIgnoreCase(dogToRemove.getName())) {
                         found = true;
                         continue;
                     }
-                    newDogList[i] = dogList[i];
+                    newDogList[i] = ownedDogs[i];
                 } else {
-                    newDogList[i - 1] = dogList[i];
+                    newDogList[i - 1] = ownedDogs[i];
                 }
             }
-            dogList = newDogList;
+            ownedDogs = newDogList;
         }
     }
 
     public boolean checkDog(Dog dog) {
-        for (Dog d : dogList) {
+        for (Dog d : ownedDogs) {
             if (dog.getName().equalsIgnoreCase(d.getName())) {
                 return true;
             }
