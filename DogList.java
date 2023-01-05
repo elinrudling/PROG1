@@ -1,7 +1,6 @@
 // Elin Rudling elru4802
 
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class DogList {
 
@@ -44,10 +43,11 @@ public class DogList {
         return false;
     }
 
-    public String getOwnedDogs() {
-        for (Dog dog : ownedDogs) {
-            return dog.getName();
+    public void printOwnedDogs() {
+        String[] dogNames = new String[ownedDogs.length];
+        for (int i = 0; i < ownedDogs.length; i++) {
+            dogNames[i] = ownedDogs[i].getName();
         }
-        return null;
+        System.out.println(" " + Arrays.toString(dogNames));
     }
 }

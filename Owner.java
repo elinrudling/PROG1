@@ -2,19 +2,19 @@
 
 public class Owner {
     private String name;
-    private DogList ownedDogs;
+    private DogList dogList;
 
     public Owner(String name) {
         this.name = name;
-        this.ownedDogs = new DogList();
+        this.dogList = new DogList();
     }
 
     public String getName() {
         return this.name;
     }
 
-    public DogList getOwnedDogs() {
-        return ownedDogs;
+    public DogList getDogList() {
+        return dogList;
     }
 
     public String toString() {
@@ -28,8 +28,8 @@ public class Owner {
                 dog.setOwner(this);
             }
 
-            if (!ownedDogs.checkDog(dog) && dog.getOwner().equals(this)) {
-                ownedDogs.addDogToOwnedDogs(dog);
+            if (!dogList.checkDog(dog) && dog.getOwner().equals(this)) {
+                dogList.addDogToOwnedDogs(dog);
             }
         }
     }

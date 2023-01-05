@@ -1,16 +1,15 @@
 // Elin Rudling elru4802
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AssignmentEightPointFour {
 
-    private ArrayList<Owner> ownerList = new ArrayList<>();
-    private ArrayList<Dog> dogList = new ArrayList<>();
+    private ArrayList<Owner> allOwners = new ArrayList<>();
+    private ArrayList<Dog> allDogs = new ArrayList<>();
     private InputScanner scanner = new InputScanner(System.in);
 
     public Owner findOwner(String nameOfOwner) {
-        for (Owner owner : ownerList) {
+        for (Owner owner : allOwners) {
             if (nameOfOwner.equalsIgnoreCase(owner.getName())) {
                 return owner;
             }
@@ -19,7 +18,7 @@ public class AssignmentEightPointFour {
     }
 
     public Dog findDog(String nameOfDog) {
-        for (Dog dog : dogList) {
+        for (Dog dog : allDogs) {
             if (nameOfDog.equalsIgnoreCase(dog.getName())) {
                 return dog;
             }
@@ -37,11 +36,11 @@ public class AssignmentEightPointFour {
     }
 
     public void addDog(Dog d) {
-        dogList.add(d);
+        allDogs.add(d);
     }
 
     public void addOwner(Owner o) {
-        ownerList.add(o);
+        allOwners.add(o);
     }
 
     public void giveDog() {
@@ -69,19 +68,19 @@ public class AssignmentEightPointFour {
     }
 
     public void listOwners() {
-        if (ownerList.size() == 0) {
+        if (allOwners.size() == 0) {
             System.out.println("Error: no owners in register");
         } else {
-            for (Owner owner : ownerList) {
-                System.out.println(owner.getName());
-                
+            for (Owner owner : allOwners) {
+                System.out.print(owner.getName());
+                owner.getDogList().printOwnedDogs();
             }
         }
     }
 
     public void listDogs() {
 
-        if (dogList.size() == 0) {
+        if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
         } else  {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
@@ -101,7 +100,7 @@ public class AssignmentEightPointFour {
 
     private ArrayList<Dog> getDogsWithLength(double smallestTailLength) {
         ArrayList<Dog> dogsWithCorrectLength = new ArrayList<>();
-        for (Dog d : dogList) {
+        for (Dog d : allDogs) {
             if (d.getTailLength() >= smallestTailLength) {
                 dogsWithCorrectLength.add(d);
             }
