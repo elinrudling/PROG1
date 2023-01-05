@@ -1,6 +1,6 @@
 // Elin Rudling elru4802
 
-public class Main {
+public class TT {
     public static void main(String[] args){
         AssignmentEightPointThree testprogram = new AssignmentEightPointThree();
 
