@@ -4,20 +4,20 @@ import java.util.Collections;
 import java.util.ArrayList;
 
 public class AssignmentSevenPointSeven {
-    private ArrayList<Dog> dogList = new ArrayList<>();
+    private ArrayList<Dog> allDogs = new ArrayList<>();
 
     public boolean swapDogs(int smallerDog, int biggerDog) {
         if (smallerDog != biggerDog) {
-            Dog dog = dogList.get(smallerDog);
-            dogList.set(smallerDog, dogList.get(biggerDog));
-            dogList.set(biggerDog, dog);
+            Dog dog = allDogs.get(smallerDog);
+            allDogs.set(smallerDog, allDogs.get(biggerDog));
+            allDogs.set(biggerDog, dog);
             return true;
         }
         return false;
     }
 
     public void swapDogsUsingClassLibrary(int smallerDog, int biggerDog) {
-        Collections.swap(dogList, smallerDog, biggerDog);
+        Collections.swap(allDogs, smallerDog, biggerDog);
     }
 
     public boolean compareDogs(Dog a, Dog b) {
@@ -34,20 +34,20 @@ public class AssignmentSevenPointSeven {
     }
 
     public int sortFromIndex(int i) {
-        Dog smallestDog = dogList.get(i);
-        for (int j = i + 1; j < dogList.size(); j++) {
-            if (compareDogs(dogList.get(j), smallestDog)) {
-                smallestDog = dogList.get(j);
+        Dog smallestDog = allDogs.get(i);
+        for (int j = i + 1; j < allDogs.size(); j++) {
+            if (compareDogs(allDogs.get(j), smallestDog)) {
+                smallestDog = allDogs.get(j);
             }
         }
 
-        return dogList.indexOf(smallestDog);
+        return allDogs.indexOf(smallestDog);
     }
 
     public int sortDogs(){
         int counter = 0;
 
-        for (int i = 0; i < dogList.size() - 1; i++) {
+        for (int i = 0; i < allDogs.size() - 1; i++) {
             if (swapDogs(sortFromIndex(i), i)){
                 counter++;
             }
