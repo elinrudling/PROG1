@@ -1,5 +1,8 @@
 // Elin Rudling elru4802
 
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class DogList {
 
     private Dog[] ownedDogs = new Dog[0];
@@ -39,6 +42,12 @@ public class DogList {
             }
         }
         return false;
+    }
 
+    public String getOwnedDogs() {
+        for (Dog dog : ownedDogs) {
+            return dog.getName();
+        }
+        return null;
     }
 }

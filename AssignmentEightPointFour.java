@@ -1,6 +1,7 @@
 // Elin Rudling elru4802
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AssignmentEightPointFour {
 
@@ -72,7 +73,8 @@ public class AssignmentEightPointFour {
             System.out.println("Error: no owners in register");
         } else {
             for (Owner owner : ownerList) {
-                System.out.println();
+                System.out.println(owner.getName());
+                
             }
         }
     }

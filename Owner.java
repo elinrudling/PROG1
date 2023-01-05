@@ -13,6 +13,10 @@ public class Owner {
         return this.name;
     }
 
+    public DogList getOwnedDogs() {
+        return ownedDogs;
+    }
+
     public String toString() {
         return String.format("Name: %s)", this.getName());
     }

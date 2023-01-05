@@ -16,8 +16,8 @@ public final class TestData {
 	public static final String DOG_LIST_CLASS_NAME = "DogList";
 	public static final String DOG_LIST_CLASS_DOG_EXISTS_METHOD_NAME = "checkDog";
 
-	public static final String LIST_OWNERS_METHOD_NAME = "...";
-	public static final String LIST_DOGS_METHOD_NAME = "...";
+	public static final String LIST_OWNERS_METHOD_NAME = "listOwners";
+	public static final String LIST_DOGS_METHOD_NAME = "listDogs";
 	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
 	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
 	public static final String MAIN_DOG_LIST_NAME = "dogList";

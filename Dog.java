@@ -64,8 +64,18 @@ public class Dog {
     }
 
     public String toString() {
-        return String.format("* %s (%s, %2d years, %2d kilo, %.2f cm tail)",
-                this.getName(), this.getBreed(), this.getAge(), this.getWeight(), this.getTailLength());
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("* %s (%s, %2d years, %2d kilo, %.2f cm tail",
+                this.getName(), this.getBreed(), this.getAge(), this.getWeight(), this.getTailLength()));
+
+        if(this.owner != null) {
+            sb.append(", owned by " + this.getOwner().getName());
+        }
+
+        sb.append(")");
+
+        return sb.toString();
     }
 
 }
