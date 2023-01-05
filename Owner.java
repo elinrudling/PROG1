@@ -33,4 +33,11 @@ public class Owner {
             }
         }
     }
+
+    public boolean checkIfOwnerOwnsDog(Dog dog) {
+        if (dogList.checkDog(dog)) {
+                return true;
+        }
+        return false;
+    }
 }

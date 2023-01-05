@@ -12,7 +12,6 @@
  * kan också ses i JUnit-testfallen för dem.
  */
 public final class TestData {
-	public static final String ADD_DOG_TO_OWNER_METHOD_NAME = "addDogToOwner";
 	public static final String DOG_LIST_CLASS_NAME = "DogList";
 	public static final String DOG_LIST_CLASS_DOG_EXISTS_METHOD_NAME = "checkDog";
 
@@ -22,5 +21,8 @@ public final class TestData {
 	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
 	public static final String MAIN_DOG_LIST_NAME = "allDogs";
 	public static final String MAIN_OWNER_LIST_NAME = "allOwners";
+
+	public static final String ADD_DOG_TO_OWNER_METHOD_NAME = "addDogToOwner";
+	public static final String OWNS_DOG_METHOD_NAME = "checkIfOwnerOwnsDog";
 
 }
