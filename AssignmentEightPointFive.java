@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class AssignmentEightPointFour {
+public class AssignmentEightPointFive {
 
     private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
