@@ -1,15 +1,8 @@
 // Elin Rudling elru4802
 
-// har hunden redan en ägare? Dog -----
-// äger jag redan hunden? Owner
-// lägg till hunden i arrayen, i Owner
-// har hunden redan mig som ägare? i Owner -----
-// be hunden sätta mig som ägare -----
-
-
 import java.util.ArrayList;
 
-public class AssignmentEightPointThree {
+public class AssignmentEightPointFour {
 
     private ArrayList<Owner> ownerList = new ArrayList<>();
     private ArrayList<Dog> dogList = new ArrayList<>();
@@ -73,4 +66,45 @@ public class AssignmentEightPointThree {
 
         System.out.println(owner.getName() + " now owns " + dog.getName());
     }
+
+    public void listOwners() {
+        if (ownerList.size() == 0) {
+            System.out.println("Error: no owners in register");
+        } else {
+            for (Owner owner : ownerList) {
+                System.out.println();
+            }
+        }
+    }
+
+    public void listDogs() {
+
+        if (dogList.size() == 0) {
+            System.out.println("Error: no dogs in register");
+        } else  {
+            double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
+
+            ArrayList<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
+
+            if (dogsWithCorrectLength.size() > 0) {
+                System.out.println("The following dogs have such a large tail:");
+                for (Dog d : dogsWithCorrectLength) {
+                    System.out.println(d.toString());
+                }
+            } else {
+                System.out.println("Error: no dog has a tail that long");
+            }
+        }
+    }
+
+    private ArrayList<Dog> getDogsWithLength(double smallestTailLength) {
+        ArrayList<Dog> dogsWithCorrectLength = new ArrayList<>();
+        for (Dog d : dogList) {
+            if (d.getTailLength() >= smallestTailLength) {
+                dogsWithCorrectLength.add(d);
+            }
+        }
+        return dogsWithCorrectLength;
+    }
+
 }

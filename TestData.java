@@ -12,12 +12,15 @@
  * kan också ses i JUnit-testfallen för dem.
  */
 public final class TestData {
-	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
-	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
 	public static final String ADD_DOG_TO_OWNER_METHOD_NAME = "addDogToOwner";
-	public static final String MAIN_DOG_LIST_NAME = "dogList";
-	public static final String MAIN_OWNER_LIST_NAME = "ownerList";
 	public static final String DOG_LIST_CLASS_NAME = "DogList";
 	public static final String DOG_LIST_CLASS_DOG_EXISTS_METHOD_NAME = "checkDog";
+
+	public static final String LIST_OWNERS_METHOD_NAME = "...";
+	public static final String LIST_DOGS_METHOD_NAME = "...";
+	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
+	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
+	public static final String MAIN_DOG_LIST_NAME = "dogList";
+	public static final String MAIN_OWNER_LIST_NAME = "ownerList";
 
 }
