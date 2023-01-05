@@ -64,9 +64,9 @@ public class Dog {
     }
 
     public void removeOwnerFromDog() {
-        if (owner != null && this.getOwner() != null) {
-            this.owner = null;
+        if (this.owner != null) {
             owner.removeDogFromOwner(this);
+            this.owner = null;
         }
     }
 

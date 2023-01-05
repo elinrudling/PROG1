@@ -18,13 +18,13 @@ public final class TestData {
 	public static final String LIST_OWNERS_METHOD_NAME = "listOwners";
 	public static final String LIST_DOGS_METHOD_NAME = "listDogs";
 	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
-	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
+	public static final String SET_OWNER_OF_DOG_METHOD_NAME = "addOwnerToDog";
 	public static final String MAIN_DOG_LIST_NAME = "allDogs";
 	public static final String MAIN_OWNER_LIST_NAME = "allOwners";
 
 	public static final String ADD_DOG_TO_OWNER_METHOD_NAME = "addDogToOwner";
 	public static final String OWNS_DOG_METHOD_NAME = "checkIfOwnerOwnsDog";
-	
+
 	public static final String REMOVE_OWNED_DOG_METHOD_NAME = "removeDog";
 	public static final String REMOVE_DOG_FROM_OWNER_METHOD_NAME = "removeDogFromOwner";
 	public static final String REMOVE_OWNER_OF_DOG_METHOD_NAME = "removeOwnerFromDog";
