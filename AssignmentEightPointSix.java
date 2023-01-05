@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class AssignmentEightPointFive {
+public class AssignmentEightPointSix {
 
     private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
@@ -62,9 +62,26 @@ public class AssignmentEightPointFive {
             return;
         }
 
-        dog.setOwner(owner);
+        dog.addOwnerToDog(owner);
 
         System.out.println(owner.getName() + " now owns " + dog.getName());
+    }
+
+    public void removeDog() {
+        String dogName = fetchFormattedString("Enter the name of the dog", "Error: no dog with that name");
+        Dog dog = findDog(dogName);
+        if (dog == null) {
+            System.out.println("Error: no such dog");
+            return;
+        }
+        if (dog.getOwner() == null) {
+            System.out.println("Error: " + dog.getName() + " is not owned by anyone");
+            return;
+        }
+
+        dog.removeOwnerFromDog();
+
+        System.out.println(dog.getName() + " is removed");
     }
 
     public void listOwners() {

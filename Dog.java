@@ -56,10 +56,17 @@ public class Dog {
         return this.owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void addOwnerToDog(Owner owner) {
         if (this.owner == null && owner != null) {
             this.owner = owner;
             owner.addDogToOwner(this);
+        }
+    }
+
+    public void removeOwnerFromDog() {
+        if (owner != null && this.getOwner() != null) {
+            this.owner = null;
+            owner.removeDogFromOwner(this);
         }
     }
 

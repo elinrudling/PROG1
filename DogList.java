@@ -15,7 +15,7 @@ public class DogList {
         }
     }
 
-    public void removeDog(Dog dogToRemove) {
+    public void removeDogFromOwnedDogs(Dog dogToRemove) {
         if (dogToRemove != null && checkDog(dogToRemove)) {
             Dog[] newDogList = new Dog[ownedDogs.length - 1];
             boolean found = false;

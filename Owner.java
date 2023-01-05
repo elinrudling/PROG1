@@ -25,11 +25,24 @@ public class Owner {
         if (dog != null) {
 
             if (dog.getOwner() == null) {
-                dog.setOwner(this);
+                dog.addOwnerToDog(this);
             }
 
             if (!dogList.checkDog(dog) && dog.getOwner().equals(this)) {
                 dogList.addDogToOwnedDogs(dog);
+            }
+        }
+    }
+
+    public void removeDogFromOwner(Dog dog) {
+        if (dog != null) {
+
+            if (dog.getOwner() != null) {
+                dog.removeOwnerFromDog(this);
+            }
+
+            if (dogList.checkDog(dog) && dog.getOwner().equals(this)) {
+                dogList.removeDogFromOwnedDogs(dog);
             }
         }
     }
