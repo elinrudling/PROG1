@@ -2,11 +2,28 @@
 
 import java.util.ArrayList;
 
-public class AssignmentEightPointSix {
+public class AssignmentEightPointSeven {
 
     private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
     private InputScanner scanner = new InputScanner(System.in);
+
+    public void addDog(Dog d) {
+        allDogs.add(d);
+    }
+
+    public void addOwner(Owner o) {
+        allOwners.add(o);
+    }
+
+    private String fetchFormattedString(String inputCommand, String errorMessage) {
+        String formattedString = scanner.inputString(inputCommand).trim();
+        while (formattedString.length() < 1) {
+            System.out.println(errorMessage);
+            formattedString = scanner.inputString(inputCommand).trim();
+        }
+        return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
+    }
 
     public Owner findOwner(String nameOfOwner) {
         for (Owner owner : allOwners) {
@@ -26,21 +43,24 @@ public class AssignmentEightPointSix {
         return null;
     }
 
-    private String fetchFormattedString(String inputCommand, String errorMessage) {
-        String formattedString = scanner.inputString(inputCommand).trim();
-        while (formattedString.length() < 1) {
-            System.out.println(errorMessage);
-            formattedString = scanner.inputString(inputCommand).trim();
+    public void removeDogFromRegister() {
+        String nameOfDog = scanner.inputString("Enter the name of the dog");
+        Dog dog = findDog(nameOfDog);
+        if (dog != null){
+            allDogs.remove(dog);
+        } else {
+            System.out.println("Error: no such dog");
         }
-        return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
     }
 
-    public void addDog(Dog d) {
-        allDogs.add(d);
-    }
-
-    public void addOwner(Owner o) {
-        allOwners.add(o);
+    public void removeOwnerFromRegister() {
+        String nameOfOwner = scanner.inputString("Enter the name of the owner");
+        Owner owner = findOwner(nameOfOwner);
+        if (owner != null){
+            allOwners.remove(owner);
+        } else {
+            System.out.println("Error: no such dog");
+        }
     }
 
     public void giveDog() {
@@ -84,7 +104,7 @@ public class AssignmentEightPointSix {
         System.out.println(dog.getName() + " is removed");
     }
 
-    public void listOwners() {
+    public void listAllOwners() {
         if (allOwners.size() == 0) {
             System.out.println("Error: no owners in register");
         } else {
@@ -95,7 +115,7 @@ public class AssignmentEightPointSix {
         }
     }
 
-    public void listDogs() {
+    public void listAllDogs() {
 
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
