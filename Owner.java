@@ -37,8 +37,13 @@ public class Owner {
     public void removeDogFromOwner(Dog dog) {
         if (dog != null) {
 
-            if (dogList.checkDog(dog)) {
+            if (this.checkIfOwnerOwnsDog(dog)) {
+            //if (dogList.checkDog(dog)) {
                 dogList.removeDogFromOwnedDogs(dog);
+            }
+
+            if (dog.getOwner() != null) {
+                dog.removeOwnerFromDog();
             }
         }
     }
