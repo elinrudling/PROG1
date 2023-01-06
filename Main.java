@@ -24,9 +24,14 @@ public class Main {
         testprogram.giveDog();
         testprogram.giveDog();
 
+        testprogram.listAllDogs();
+        testprogram.listAllOwners();
 
-        testprogram.listDogs();
-        testprogram.listOwners();
+        testprogram.removeDog();
+        testprogram.removeDog();
+
+        testprogram.listAllDogs();
+        testprogram.listAllOwners();
 
     }
 

@@ -8,6 +8,14 @@ public class AssignmentEightPointSix {
     private ArrayList<Dog> allDogs = new ArrayList<>();
     private InputScanner scanner = new InputScanner(System.in);
 
+    public void addDog(Dog d) {
+        allDogs.add(d);
+    }
+
+    public void addOwner(Owner o) {
+        allOwners.add(o);
+    }
+
     public Owner findOwner(String nameOfOwner) {
         for (Owner owner : allOwners) {
             if (nameOfOwner.equalsIgnoreCase(owner.getName())) {
@@ -33,14 +41,6 @@ public class AssignmentEightPointSix {
             formattedString = scanner.inputString(inputCommand).trim();
         }
         return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
-    }
-
-    public void addDog(Dog d) {
-        allDogs.add(d);
-    }
-
-    public void addOwner(Owner o) {
-        allOwners.add(o);
     }
 
     public void giveDog() {
@@ -84,18 +84,7 @@ public class AssignmentEightPointSix {
         System.out.println(dog.getName() + " is removed");
     }
 
-    public void listOwners() {
-        if (allOwners.size() == 0) {
-            System.out.println("Error: no owners in register");
-        } else {
-            for (Owner owner : allOwners) {
-                System.out.print(owner.getName());
-                owner.getDogList().printOwnedDogs();
-            }
-        }
-    }
-
-    public void listDogs() {
+    public void listAllDogs() {
 
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
@@ -111,6 +100,17 @@ public class AssignmentEightPointSix {
                 }
             } else {
                 System.out.println("Error: no dog has a tail that long");
+            }
+        }
+    }
+
+    public void listAllOwners() {
+        if (allOwners.size() == 0) {
+            System.out.println("Error: no owners in register");
+        } else {
+            for (Owner owner : allOwners) {
+                System.out.print(owner.getName());
+                owner.getDogList().printOwnedDogs();
             }
         }
     }
