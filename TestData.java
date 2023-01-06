@@ -16,10 +16,12 @@ public final class TestData {
 	public static final String MAIN_DOG_LIST_NAME = "allDogs";
 	public static final String MAIN_OWNER_LIST_NAME = "allOwners";
 
-	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
-	public static final String REMOVE_OWNED_DOG_METHOD_NAME = "removeDog";
+	public static final String REGISTER_NEW_DOG_METHOD_NAME = "registerNewDog";
 
 	public static final String REMOVE_OWNER_METHOD_NAME = "removeOwnerFromRegister";
+
+	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
+	public static final String REMOVE_OWNED_DOG_METHOD_NAME = "removeDog";
 
 	public static final String LIST_DOGS_METHOD_NAME = "listAllDogs";
 	public static final String LIST_OWNERS_METHOD_NAME = "listAllOwners";

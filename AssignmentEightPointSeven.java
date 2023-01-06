@@ -4,12 +4,21 @@ import java.util.ArrayList;
 
 public class AssignmentEightPointSeven {
 
-    private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
+    private ArrayList<Owner> allOwners = new ArrayList<>();
     private InputScanner scanner = new InputScanner(System.in);
 
     public void addDog(Dog d) {
         allDogs.add(d);
+    }
+
+    public void registerNewDog() {
+        String dogName = fetchFormattedString("Name", "Error: the name can’t be empty");
+        String dogBreed = fetchFormattedString("Breed", "Error: the breed can’t be empty");
+        int dogAge = scanner.inputInt("Age");
+        int dogWeight = scanner.inputInt("Weight");
+        Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
+        allDogs.add(dog);
     }
 
     public void addOwner(Owner o) {
