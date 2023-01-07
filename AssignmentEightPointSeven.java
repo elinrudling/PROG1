@@ -66,6 +66,9 @@ public class AssignmentEightPointSeven {
         String nameOfOwner = scanner.inputString("Enter the name of the owner");
         Owner owner = findOwner(nameOfOwner);
         if (owner != null){
+            for (Dog dog : owner.getDogList().getOwnedDogs()) {
+                dog.removeOwnerFromDog();
+            }
             allOwners.remove(owner);
         } else {
             System.out.println("Error: no such dog");
