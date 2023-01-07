@@ -18,6 +18,7 @@ public final class TestData {
 
 	public static final String REGISTER_NEW_DOG_METHOD_NAME = "registerNewDog";
 
+	public static final String REMOVE_DOG_METHOD_NAME = "removeDogFromRegister";
 	public static final String REMOVE_OWNER_METHOD_NAME = "removeOwnerFromRegister";
 
 	public static final String GIVE_DOG_METHOD_NAME = "giveDog";

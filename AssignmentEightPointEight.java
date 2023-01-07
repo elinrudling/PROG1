@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class AssignmentEightPointSeven {
+public class AssignmentEightPointEight {
 
     private ArrayList<Dog> allDogs = new ArrayList<>();
     private ArrayList<Owner> allOwners = new ArrayList<>();
@@ -34,9 +34,6 @@ public class AssignmentEightPointSeven {
         return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
     }
 
-    //[Name: Nike), Name: Bertil), Name: Jozef), Name: Patrick), Name: Erik)]
-    //[Name: Nike), Name: Bertil), Name: Jozef), Name: Erik)]
-
     public Owner findOwner(String nameOfOwner) {
         for (Owner owner : allOwners) {
             if (nameOfOwner.equalsIgnoreCase(owner.getName())) {
@@ -56,10 +53,22 @@ public class AssignmentEightPointSeven {
     }
 
     public void removeDogFromRegister() {
-        String nameOfDog = scanner.inputString("Enter the name of the dog");
+        String nameOfDog = fetchFormattedString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
         if (dog != null){
+            dog.removeOwnerFromDog();
             allDogs.remove(dog);
+        } else {
+            System.out.println("Error: no such dog");
+        }
+    }
+
+    public void removeOwnerFromRegister() {
+        String nameOfOwner = fetchFormattedString("Enter the name of the owner", "Error: incorrect name format");
+        Owner owner = findOwner(nameOfOwner);
+        if (owner != null){
+            removeOwnedDogsFromRegister(owner);
+            allOwners.remove(owner);
         } else {
             System.out.println("Error: no such dog");
         }
@@ -74,17 +83,6 @@ public class AssignmentEightPointSeven {
         }
         for (Dog dog : tempDogList) {
             allDogs.remove(dog);
-        }
-    }
-
-    public void removeOwnerFromRegister() {
-        String nameOfOwner = fetchFormattedString("Enter the name of the owner", "Error: incorrect name format");
-        Owner owner = findOwner(nameOfOwner);
-        if (owner != null){
-            removeOwnedDogsFromRegister(owner);
-            allOwners.remove(owner);
-        } else {
-            System.out.println("Error: no such dog");
         }
     }
 
