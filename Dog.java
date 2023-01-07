@@ -65,13 +65,10 @@ public class Dog {
 
     public void removeOwnerFromDog() {
         if (this.owner != null) {
-
             if (owner.checkIfOwnerOwnsDog(this)) {
-            //if (owner.getDogList().checkDog(this)) {
                 owner.removeDogFromOwner(this);
+                this.owner = null;
             }
-
-            this.owner = null;
         }
     }
 
