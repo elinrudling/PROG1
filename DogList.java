@@ -50,8 +50,4 @@ public class DogList {
         }
         System.out.println(" " + Arrays.toString(dogNames));
     }
-
-    public Dog[] getOwnedDogs() {
-        return ownedDogs;
-    }
 }

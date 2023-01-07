@@ -34,6 +34,9 @@ public class AssignmentEightPointSeven {
         return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
     }
 
+    //[Name: Nike), Name: Bertil), Name: Jozef), Name: Patrick), Name: Erik)]
+    //[Name: Nike), Name: Bertil), Name: Jozef), Name: Erik)]
+
     public Owner findOwner(String nameOfOwner) {
         for (Owner owner : allOwners) {
             if (nameOfOwner.equalsIgnoreCase(owner.getName())) {
@@ -62,13 +65,23 @@ public class AssignmentEightPointSeven {
         }
     }
 
+    private void removeOwnedDogsFromRegister(Owner owner) {
+        ArrayList <Dog> tempDogList = new ArrayList<>();
+        for (Dog dog : allDogs) {
+            if (dog.getOwner() == owner) {
+                tempDogList.add(dog);
+            }
+        }
+        for (Dog dog : tempDogList) {
+            allDogs.remove(dog);
+        }
+    }
+
     public void removeOwnerFromRegister() {
-        String nameOfOwner = scanner.inputString("Enter the name of the owner");
+        String nameOfOwner = fetchFormattedString("Enter the name of the owner", "Error: incorrect name format");
         Owner owner = findOwner(nameOfOwner);
         if (owner != null){
-            for (Dog dog : owner.getDogList().getOwnedDogs()) {
-                dog.removeOwnerFromDog();
-            }
+            removeOwnedDogsFromRegister(owner);
             allOwners.remove(owner);
         } else {
             System.out.println("Error: no such dog");
