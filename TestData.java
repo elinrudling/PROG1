@@ -28,7 +28,7 @@ public final class TestData {
 	public static final String REMOVE_DOG_METHOD_NAME = "removeDogFromRegister";
 
 	public static final String GIVE_DOG_METHOD_NAME = "giveDog";
-	public static final String REMOVE_OWNED_DOG_METHOD_NAME = "removeDog";
+	public static final String REMOVE_OWNED_DOG_METHOD_NAME = "removeOwnedDog";
 
 	public static final String LIST_OWNERS_METHOD_NAME = "listAllOwners";
 	public static final String LIST_DOGS_METHOD_NAME = "listAllDogs";

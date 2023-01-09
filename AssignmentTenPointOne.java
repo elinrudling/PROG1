@@ -132,7 +132,7 @@ public class AssignmentTenPointOne {
         System.out.println(owner.getName() + " now owns " + dog.getName());
     }
 
-    public void removeDog() {
+    public void removeOwnedDog() {
         String dogName = formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(dogName);
         if (dog == null) {
@@ -165,6 +165,7 @@ public class AssignmentTenPointOne {
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
         } else {
+            sortDogs();
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
             ArrayList<Dog> dogsWithCorrectTailLength = getDogsWithCorrectTailLength(smallestTailLength);
