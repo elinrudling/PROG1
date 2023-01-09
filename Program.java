@@ -2,9 +2,15 @@
 
 //import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeMap;
+
 public class Program {
     private static final int EXIT_COMMAND = 0;
-    //private Scanner input = new Scanner(System.in);
+    private static String[] commands = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
+            "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
+
     private InputScanner scanner = new InputScanner(System.in);
 
     public static void main(String[] args) {
@@ -21,6 +27,10 @@ public class Program {
         System.out.println("Welcome!");
     }
 
+    private void fillCommandDictionary() {
+
+    }
+
     private void runCommandLoop() {
         int command;
         do {
@@ -29,11 +39,28 @@ public class Program {
         } while (command != EXIT_COMMAND);
     }
 
+    private boolean checkIfCommandExists(String input) {
+        for (String command : commands) {
+            if (input.equalsIgnoreCase(command)) {
+                return true;
+            }
+        }
+        System.out.println("Error: incorrect command");
+        return false;
+    }
+
     private int readCommand() {
-        System.out.print("Commands: \n1 Register new dog\n2 Register new owner\n3 Remove dog\n4 Remove owner\n" +
-                "5 Give dog\n6 Remove owned dog\n7 Increase age\n8 List dogs\n9 List owners\n10 Exit\n");
-        int command = scanner.inputInt("Choose command");
-        return command;
+        for (int i = 0; i < commands.length; i++) {
+            System.out.println("* " + commands[i]);
+        }
+
+        String command;
+        do {
+            command = scanner.inputString("Choose command");
+        }
+        while (!commands.contains(command));
+
+        return commandDictionary.get(command);
     }
 
     private void handleCommand(int command) {
