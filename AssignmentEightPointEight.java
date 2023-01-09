@@ -12,6 +12,10 @@ public class AssignmentEightPointEight {
         allDogs.add(d);
     }
 
+    public void addOwner(Owner o) {
+        allOwners.add(o);
+    }
+
     public void registerNewDog() {
         String dogName = fetchFormattedString("Name", "Error: the name can’t be empty");
         String dogBreed = fetchFormattedString("Breed", "Error: the breed can’t be empty");
@@ -21,8 +25,11 @@ public class AssignmentEightPointEight {
         allDogs.add(dog);
     }
 
-    public void addOwner(Owner o) {
-        allOwners.add(o);
+    public void registerNewOwner() {
+        String ownerName = fetchFormattedString("Name", "Error: the name can’t be empty");
+        Owner owner = new Owner(ownerName);
+        allOwners.add(owner);
+        System.out.println(ownerName + " added to the register");
     }
 
     private String fetchFormattedString(String inputCommand, String errorMessage) {
@@ -145,12 +152,12 @@ public class AssignmentEightPointEight {
         } else  {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
-            ArrayList<Dog> dogsWithCorrectLength = getDogsWithLength(smallestTailLength);
+            ArrayList<Dog> dogsWithCorrectTailLength = getDogsWithCorrectTailLength(smallestTailLength);
 
-            if (dogsWithCorrectLength.size() > 0) {
+            if (dogsWithCorrectTailLength.size() > 0) {
                 System.out.println("The following dogs have such a large tail:");
-                for (Dog d : dogsWithCorrectLength) {
-                    System.out.println(d.toString());
+                for (Dog dog : dogsWithCorrectTailLength) {
+                    System.out.println(dog.toString());
                 }
             } else {
                 System.out.println("Error: no dog has a tail that long");
@@ -158,14 +165,14 @@ public class AssignmentEightPointEight {
         }
     }
 
-    private ArrayList<Dog> getDogsWithLength(double smallestTailLength) {
-        ArrayList<Dog> dogsWithCorrectLength = new ArrayList<>();
-        for (Dog d : allDogs) {
-            if (d.getTailLength() >= smallestTailLength) {
-                dogsWithCorrectLength.add(d);
+    private ArrayList<Dog> getDogsWithCorrectTailLength(double smallestTailLength) {
+        ArrayList<Dog> dogsWithCorrectTailLength = new ArrayList<>();
+        for (Dog dog : allDogs) {
+            if (dog.getTailLength() >= smallestTailLength) {
+                dogsWithCorrectTailLength.add(dog);
             }
         }
-        return dogsWithCorrectLength;
+        return dogsWithCorrectTailLength;
     }
 
 }

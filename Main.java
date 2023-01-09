@@ -2,7 +2,7 @@
 
 public class Main {
     public static void main(String[] args){
-        AssignmentEightPointSeven testprogram = new AssignmentEightPointSeven();
+        AssignmentEightPointEight testprogram = new AssignmentEightPointEight();
 
         Dog a = new Dog("Zimba", "asd", 5, 4);
         Dog b = new Dog("Nala", "jkl", 4, 7);
@@ -11,6 +11,16 @@ public class Main {
 
         Owner e = new Owner("Elin");
         Owner f = new Owner("Martin");
+
+        testprogram.registerNewDog();
+        testprogram.registerNewDog();
+        testprogram.registerNewDog();
+        testprogram.registerNewDog();
+
+        testprogram.registerNewOwner();
+        testprogram.registerNewOwner();
+        testprogram.registerNewOwner();
+        testprogram.registerNewDog();
 
         testprogram.addDog(a);
         testprogram.addDog(b);

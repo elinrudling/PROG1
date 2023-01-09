@@ -12,7 +12,7 @@
  * kan också ses i JUnit-testfallen för dem.
  */
 public final class TestData {
-	//8.7
+	//8.8
 	public static final String MAIN_DOG_LIST_NAME = "allDogs";
 	public static final String MAIN_OWNER_LIST_NAME = "allOwners";
 
