@@ -1,38 +1,40 @@
 // Elin Rudling elru4802
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class AssignmentEightPointEight {
+public class AssignmentTenPointOne {
 
-    private ArrayList<Dog> allDogs = new ArrayList<>();
     private ArrayList<Owner> allOwners = new ArrayList<>();
+    private ArrayList<Dog> allDogs = new ArrayList<>();
     private InputScanner scanner = new InputScanner(System.in);
-
-    public void addDog(Dog d) {
-        allDogs.add(d);
-    }
 
     public void addOwner(Owner o) {
         allOwners.add(o);
     }
 
-    public void registerNewDog() {
-        String dogName = fetchFormattedString("Name", "Error: the name can’t be empty");
-        String dogBreed = fetchFormattedString("Breed", "Error: the breed can’t be empty");
-        int dogAge = scanner.inputInt("Age");
-        int dogWeight = scanner.inputInt("Weight");
-        Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
-        allDogs.add(dog);
+    public void addDog(Dog d) {
+        allDogs.add(d);
     }
 
     public void registerNewOwner() {
-        String ownerName = fetchFormattedString("Name", "Error: the name can’t be empty");
+        String ownerName = formatString("Name", "Error: the name can’t be empty");
         Owner owner = new Owner(ownerName);
         allOwners.add(owner);
         System.out.println(ownerName + " added to the register");
     }
 
-    private String fetchFormattedString(String inputCommand, String errorMessage) {
+    public void registerNewDog() {
+        String dogName = formatString("Name", "Error: the name can’t be empty");
+        String dogBreed = formatString("Breed", "Error: the breed can’t be empty");
+        int dogAge = scanner.inputInt("Age");
+        int dogWeight = scanner.inputInt("Weight");
+        Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
+        allDogs.add(dog);
+        System.out.println(dogName + " added to the register");
+    }
+
+    private String formatString(String inputCommand, String errorMessage) {
         String formattedString = scanner.inputString(inputCommand).trim();
         while (formattedString.length() < 1) {
             System.out.println(errorMessage);
@@ -59,30 +61,43 @@ public class AssignmentEightPointEight {
         return null;
     }
 
-    public void removeDogFromRegister() {
-        String nameOfDog = fetchFormattedString("Enter the name of the dog", "Error: incorrect name format");
+    public void increaseAgeOfDog() {
+        //String nameOfDog = scanner.inputString("Enter the name of the dog");
+        String nameOfDog = formatString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
-        if (dog != null){
-            dog.removeOwnerFromDog();
-            allDogs.remove(dog);
+        if (dog != null) {
+            dog.changeAge();
         } else {
             System.out.println("Error: no such dog");
         }
     }
 
     public void removeOwnerFromRegister() {
-        String nameOfOwner = fetchFormattedString("Enter the name of the owner", "Error: incorrect name format");
+        String nameOfOwner = formatString("Enter the name of the owner", "Error: incorrect name format");
         Owner owner = findOwner(nameOfOwner);
-        if (owner != null){
+        if (owner != null) {
             removeOwnedDogsFromRegister(owner);
             allOwners.remove(owner);
         } else {
+            System.out.println("Error: no such owner");
+        }
+        System.out.println(nameOfOwner + " is removed from the register");
+    }
+
+    public void removeDogFromRegister() {
+        String nameOfDog = formatString("Enter the name of the dog", "Error: incorrect name format");
+        Dog dog = findDog(nameOfDog);
+        if (dog != null) {
+            dog.removeOwnerFromDog();
+            allDogs.remove(dog);
+        } else {
             System.out.println("Error: no such dog");
         }
+        System.out.println(nameOfDog + " is removed from the register");
     }
 
     private void removeOwnedDogsFromRegister(Owner owner) {
-        ArrayList <Dog> tempDogList = new ArrayList<>();
+        ArrayList<Dog> tempDogList = new ArrayList<>();
         for (Dog dog : allDogs) {
             if (dog.getOwner() == owner) {
                 tempDogList.add(dog);
@@ -94,8 +109,8 @@ public class AssignmentEightPointEight {
     }
 
     public void giveDog() {
-        String dogName = fetchFormattedString("Enter the name of the dog", "Error: no dog with that name");
-        Dog dog = findDog(dogName);
+        String nameOfDog = formatString("Enter the name of the dog", "Error: no dog with that name");
+        Dog dog = findDog(nameOfDog);
         if (dog == null) {
             System.out.println("Error: no dog with that name");
             return;
@@ -105,8 +120,8 @@ public class AssignmentEightPointEight {
             return;
         }
 
-        String ownerName = fetchFormattedString("Enter the name of the new owner", "Error: no such owner");
-        Owner owner = findOwner(ownerName);
+        String nameOfOwner = formatString("Enter the name of the new owner", "Error: no such owner");
+        Owner owner = findOwner(nameOfOwner);
         if (owner == null) {
             System.out.println("Error: no such owner");
             return;
@@ -118,7 +133,7 @@ public class AssignmentEightPointEight {
     }
 
     public void removeDog() {
-        String dogName = fetchFormattedString("Enter the name of the dog", "Error: no dog with that name");
+        String dogName = formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(dogName);
         if (dog == null) {
             System.out.println("Error: no such dog");
@@ -149,7 +164,7 @@ public class AssignmentEightPointEight {
 
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
-        } else  {
+        } else {
             double smallestTailLength = scanner.inputDouble("Smallest tail length to display");
 
             ArrayList<Dog> dogsWithCorrectTailLength = getDogsWithCorrectTailLength(smallestTailLength);
@@ -173,6 +188,55 @@ public class AssignmentEightPointEight {
             }
         }
         return dogsWithCorrectTailLength;
+    }
+
+    public boolean swapDogs(int smallerDog, int biggerDog) {
+        if (smallerDog != biggerDog) {
+            Dog dog = allDogs.get(smallerDog);
+            allDogs.set(smallerDog, allDogs.get(biggerDog));
+            allDogs.set(biggerDog, dog);
+            return true;
+        }
+        return false;
+    }
+
+    public void swapDogsUsingClassLibrary(int smallerDog, int biggerDog) {
+        Collections.swap(allDogs, smallerDog, biggerDog);
+    }
+
+    public boolean compareDogs(Dog a, Dog b) {
+        if (a.getTailLength() == b.getTailLength()) {
+            if (a.getName().compareToIgnoreCase(b.getName()) < 0) {
+                return true;
+            }
+            return false;
+        }
+        if (a.getTailLength() < b.getTailLength()) {
+            return true;
+        }
+        return false;
+    }
+
+    public int findSmallestDog(int index) {
+        Dog smallestDog = allDogs.get(index);
+        for (int i = index + 1; i < allDogs.size(); i++) {
+            if (compareDogs(allDogs.get(i), smallestDog)) {
+                smallestDog = allDogs.get(i);
+            }
+        }
+
+        return allDogs.indexOf(smallestDog);
+    }
+
+    public int sortDogs() {
+        int counter = 0;
+
+        for (int i = 0; i < allDogs.size() - 1; i++) {
+            if (swapDogs(findSmallestDog(i), i)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
 }
