@@ -35,9 +35,10 @@ public class InputScanner {
 
     public double inputDouble(String text) {
         System.out.print(text + "?>");
-        double userInput = input.nextDouble();
+        String userInput = input.next().replace(",", ".");
+        double result = Double.parseDouble(userInput);
         input.nextLine();
-        return userInput;
+        return result;
     }
 
 }

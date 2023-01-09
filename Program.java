@@ -1,18 +1,14 @@
 // Elin Rudling elru4802
 
-//import java.util.Scanner;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeMap;
 
 public class Program {
-    private static final int EXIT_COMMAND = 0;
-    private static String[] commands = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
+    private static final int EXIT_COMMAND = 9;
+    private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
-
-    private InputScanner scanner = new InputScanner(System.in);
-
+    private static ArrayList<String> finalCommands = new ArrayList<>();
+    private AssignmentTenPointOne assignmentTenPointOne;
+    private InputScanner scanner;
     public static void main(String[] args) {
         new Program().run();
     }
@@ -24,11 +20,13 @@ public class Program {
     }
 
     private void startup() {
-        System.out.println("Welcome!");
-    }
-
-    private void fillCommandDictionary() {
-
+        for (String string : COMMANDS) {
+            finalCommands.add(string.toLowerCase());
+        }
+        scanner = new InputScanner(System.in);
+        assignmentTenPointOne = new AssignmentTenPointOne();
+        assignmentTenPointOne.setScanner(scanner);
+        System.out.print("Welcome!");
     }
 
     private void runCommandLoop() {
@@ -40,67 +38,64 @@ public class Program {
     }
 
     private boolean checkIfCommandExists(String input) {
-        for (String command : commands) {
-            if (input.equalsIgnoreCase(command)) {
-                return true;
-            }
-        }
-        System.out.println("Error: incorrect command");
+        if (finalCommands.contains(input.toLowerCase()))
+            return true;
+
+        System.out.println("Error! Incorrect command");
         return false;
     }
 
     private int readCommand() {
-        for (int i = 0; i < commands.length; i++) {
-            System.out.println("* " + commands[i]);
+        System.out.println();
+        for (String command : COMMANDS) {
+            System.out.println("* " + command);
         }
 
-        String command;
+        String input;
+
         do {
-            command = scanner.inputString("Choose command");
-        }
-        while (!commands.contains(command));
+            input = scanner.inputString("Enter command").toLowerCase();
+        } while (!checkIfCommandExists(input));
 
-        return commandDictionary.get(command);
+        return finalCommands.indexOf(input);
     }
 
     private void handleCommand(int command) {
         switch (command) {
-            case EXIT_COMMAND:
+            case 0:
+                assignmentTenPointOne.registerNewDog();
+                break;
+            case 1:
+                assignmentTenPointOne.registerNewOwner();
+                break;
+            case 2:
+                assignmentTenPointOne.removeDogFromRegister();
+                break;
+            case 3:
+                assignmentTenPointOne.removeOwnerFromRegister();
+                break;
+            case 4:
+                assignmentTenPointOne.giveDog();
+                break;
+            case 5:
+                assignmentTenPointOne.removeOwnedDog();
+                break;
+            case 6:
+                assignmentTenPointOne.increaseAgeOfDog();
+                break;
+            case 7:
+                assignmentTenPointOne.listAllDogs();
+                break;
+            case 8:
+                assignmentTenPointOne.listAllOwners();
+                break;
+            default:
                 shutdown();
                 break;
-//            case 1:
-//                registerNewDog();
-//                break;
-//            case 2:
-//                registerNewOwner();
-//                break;
-//            case 3:
-//                removeDogFromRegister();
-//                break;
-//            case 4:
-//                removeOwnerFromRegister();
-//                break;
-//            case 5:
-//                giveDog();
-//                break;
-//            case 6:
-//                removeOwnedDog();
-//                break;
-//            case 7:
-//                increaseAgeOfDog();
-//                break;
-//            case 8:
-//                listAllDogs();
-//                break;
-//            case 9:
-//                listAllOwners();
-//                break;
-            default:
-                System.out.println("Error: incorrect command");
         }
     }
 
     private void shutdown() {
-        // Innehåller kod som ska köras en enda gång precis när programmet avslutas
+        // exit
     }
 }

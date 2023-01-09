@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class AssignmentTenPointOne {
-
+    private static InputScanner scanner;
     private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
-    private InputScanner scanner = new InputScanner(System.in);
 
     public void addOwner(Owner o) {
         allOwners.add(o);
@@ -22,6 +21,10 @@ public class AssignmentTenPointOne {
         Owner owner = new Owner(ownerName);
         allOwners.add(owner);
         System.out.println(ownerName + " added to the register");
+    }
+
+    public void setScanner(InputScanner sc){
+        scanner = sc;
     }
 
     public void registerNewDog() {
