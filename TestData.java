@@ -55,8 +55,8 @@ public final class TestData {
 
 	//InputScanner
 	public static final String SCANNER_ADAPTER_CLASS_NAME = "InputScanner";
-	public static final String READ_TEXT_METHOD_NAME = "formatString";
-	public static final String READ_INTEGER_METHOD_NAME = "formatInt";
+	public static final String READ_TEXT_METHOD_NAME = "inputString";
+	public static final String READ_INTEGER_METHOD_NAME = "inputInt";
 	public static final String READ_DECIMAL_METHOD_NAME = "inputDouble";
 
 }

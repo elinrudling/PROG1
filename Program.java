@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 
 public class Program {
-    private final InputScanner scanner = new InputScanner(System.in);
+    private final InputScanner scanner = new InputScanner();
     private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
     private static ArrayList<String> finalCommands = new ArrayList<>();
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",

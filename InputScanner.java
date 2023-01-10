@@ -18,7 +18,7 @@ public class InputScanner {
     }
 
     public InputScanner() {
-        new InputScanner(System.in);
+        this(System.in);
     }
 
     public String formatString(String inputCommand, String errorMessage) {
