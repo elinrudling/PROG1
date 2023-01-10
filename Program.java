@@ -6,7 +6,7 @@ public class Program {
 
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
-    private static final ArrayList<String> lowerCaseCommands = new ArrayList<>();
+    private static final ArrayList<String> LOWER_CASE_COMMANDS = new ArrayList<>();
     private final InputScanner scanner = new InputScanner();
     private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
 
@@ -23,7 +23,7 @@ public class Program {
         assignmentTenPointOne.setScanner(scanner);
 
         for (String string : COMMANDS) {
-            lowerCaseCommands.add(string.toLowerCase());
+            LOWER_CASE_COMMANDS.add(string.toLowerCase());
         }
 
         System.out.println("Welcome!");
@@ -43,7 +43,7 @@ public class Program {
     private String readCommand() {
         String input;
         input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
-        while (!lowerCaseCommands.contains(input.toLowerCase())) {
+        while (!LOWER_CASE_COMMANDS.contains(input.toLowerCase())) {
             System.out.println("Error! Incorrect command");
             input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
         }
