@@ -21,29 +21,20 @@ public class AssignmentTenPointOne {
     }
 
     public void registerNewOwner() {
-        String ownerName = formatString("Name", "Error: the name can’t be empty");
+        String ownerName = scanner.formatString("Name", "Error: the name can’t be empty");
         Owner owner = new Owner(ownerName);
         allOwners.add(owner);
         System.out.println(ownerName + " added to the register");
     }
 
     public void registerNewDog() {
-        String dogName = formatString("Name", "Error: the name can’t be empty");
-        String dogBreed = formatString("Breed", "Error: the breed can’t be empty");
-        int dogAge = scanner.inputInt("Age");
-        int dogWeight = scanner.inputInt("Weight");
+        String dogName = scanner.formatString("Name", "Error: the name can’t be empty");
+        String dogBreed = scanner.formatString("Breed", "Error: the breed can’t be empty");
+        int dogAge = scanner.formatInt("Age", "Error: incorrect dog age");
+        int dogWeight = scanner.formatInt("Weight", "Error: incorrect dog weight");
         Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
         allDogs.add(dog);
         System.out.println(dogName + " added to the register");
-    }
-
-    private String formatString(String inputCommand, String errorMessage) {
-        String formattedString = scanner.inputString(inputCommand).trim();
-        while (formattedString.length() < 1) {
-            System.out.println(errorMessage);
-            formattedString = scanner.inputString(inputCommand).trim();
-        }
-        return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
     }
 
     public Owner findOwner(String nameOfOwner) {
@@ -65,8 +56,7 @@ public class AssignmentTenPointOne {
     }
 
     public void increaseAgeOfDog() {
-        //String nameOfDog = scanner.inputString("Enter the name of the dog");
-        String nameOfDog = formatString("Enter the name of the dog", "Error: incorrect name format");
+        String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
         if (dog != null) {
             dog.changeAge();
@@ -76,7 +66,7 @@ public class AssignmentTenPointOne {
     }
 
     public void removeOwnerFromRegister() {
-        String nameOfOwner = formatString("Enter the name of the owner", "Error: incorrect name format");
+        String nameOfOwner = scanner.formatString("Enter the name of the owner", "Error: incorrect name format");
         Owner owner = findOwner(nameOfOwner);
         if (owner != null) {
             removeOwnedDogsFromRegister(owner);
@@ -88,7 +78,7 @@ public class AssignmentTenPointOne {
     }
 
     public void removeDogFromRegister() {
-        String nameOfDog = formatString("Enter the name of the dog", "Error: incorrect name format");
+        String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
         if (dog != null) {
             dog.removeOwnerFromDog();
@@ -112,7 +102,7 @@ public class AssignmentTenPointOne {
     }
 
     public void giveDog() {
-        String nameOfDog = formatString("Enter the name of the dog", "Error: no dog with that name");
+        String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(nameOfDog);
         if (dog == null) {
             System.out.println("Error: no dog with that name");
@@ -123,7 +113,7 @@ public class AssignmentTenPointOne {
             return;
         }
 
-        String nameOfOwner = formatString("Enter the name of the new owner", "Error: no such owner");
+        String nameOfOwner = scanner.formatString("Enter the name of the new owner", "Error: no such owner");
         Owner owner = findOwner(nameOfOwner);
         if (owner == null) {
             System.out.println("Error: no such owner");
@@ -136,7 +126,7 @@ public class AssignmentTenPointOne {
     }
 
     public void removeOwnedDog() {
-        String dogName = formatString("Enter the name of the dog", "Error: no dog with that name");
+        String dogName = scanner.formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(dogName);
         if (dog == null) {
             System.out.println("Error: no such dog");

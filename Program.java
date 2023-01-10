@@ -3,8 +3,8 @@
 import java.util.ArrayList;
 
 public class Program {
-    private InputScanner scanner;
-    private AssignmentTenPointOne assignmentTenPointOne;
+    private final InputScanner scanner = new InputScanner(System.in);
+    private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
     private static ArrayList<String> finalCommands = new ArrayList<>();
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
@@ -20,8 +20,6 @@ public class Program {
     }
 
     private void startup() {
-        scanner = new InputScanner(System.in);
-        assignmentTenPointOne = new AssignmentTenPointOne();
         assignmentTenPointOne.setScanner(scanner);
 
         for (String string : COMMANDS) {
@@ -44,10 +42,10 @@ public class Program {
 
     private int readCommand() {
         String input;
-        input = scanner.inputString("Enter command").toLowerCase();
+        input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
         while (!finalCommands.contains(input.toLowerCase())) {
             System.out.println("Error! Incorrect command");
-            input = scanner.inputString("Enter command").toLowerCase();
+            input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
         }
         return finalCommands.indexOf(input);
     }

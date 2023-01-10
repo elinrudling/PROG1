@@ -21,6 +21,24 @@ public class InputScanner {
         new InputScanner(System.in);
     }
 
+    public String formatString(String inputCommand, String errorMessage) {
+        String formattedString = inputString(inputCommand).trim();
+        while (formattedString.length() < 1) {
+            System.out.println(errorMessage);
+            formattedString = inputString(inputCommand).trim();
+        }
+        return formattedString.substring(0, 1).toUpperCase() + formattedString.substring(1).toLowerCase();
+    }
+
+    public int formatInt(String inputCommand, String errorMessage) {
+        int formattedInt = inputInt(inputCommand);
+        while (formattedInt < 0) {
+            System.out.println(errorMessage);
+            formattedInt = inputInt(inputCommand);
+        }
+        return formattedInt;
+    }
+
     public String inputString(String text) {
         System.out.print(text + "?>");
         return input.nextLine();
