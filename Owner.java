@@ -17,10 +17,6 @@ public class Owner {
         return dogList;
     }
 
-    public String toString() {
-        return String.format("Name: %s)", this.getName());
-    }
-
     public void addDogToOwner(Dog dog) {
         if (dog != null) {
 
@@ -45,7 +41,7 @@ public class Owner {
 
     public boolean checkIfOwnerOwnsDog(Dog dog) {
         if (dogList.checkDog(dog)) {
-                return true;
+            return true;
         }
         return false;
     }

@@ -3,21 +3,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AssignmentTenPointOne {
+public class DogRegister {
     private InputScanner scanner;
     private ArrayList<Owner> allOwners = new ArrayList<>();
     private ArrayList<Dog> allDogs = new ArrayList<>();
 
-    public void setScanner(InputScanner sc){
+    public void setScanner(InputScanner sc) {
         scanner = sc;
-    }
-
-    public void addOwner(Owner o) {
-        allOwners.add(o);
-    }
-
-    public void addDog(Dog d) {
-        allDogs.add(d);
     }
 
     public void registerNewOwner() {
@@ -108,6 +100,7 @@ public class AssignmentTenPointOne {
             System.out.println("Error: no dog with that name");
             return;
         }
+
         if (dog.getOwner() != null) {
             System.out.println("Error: the dog already has an owner");
             return;
@@ -132,6 +125,7 @@ public class AssignmentTenPointOne {
             System.out.println("Error: no such dog");
             return;
         }
+
         if (dog.getOwner() == null) {
             System.out.println("Error: " + dog.getName() + " is not owned by anyone");
             return;
@@ -154,7 +148,6 @@ public class AssignmentTenPointOne {
     }
 
     public void listAllDogs() {
-
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
         } else {
@@ -218,13 +211,11 @@ public class AssignmentTenPointOne {
                 smallestDog = allDogs.get(i);
             }
         }
-
         return allDogs.indexOf(smallestDog);
     }
 
     public int sortDogs() {
         int counter = 0;
-
         for (int i = 0; i < allDogs.size() - 1; i++) {
             if (swapDogs(findSmallestDog(i), i)) {
                 counter++;
@@ -232,5 +223,4 @@ public class AssignmentTenPointOne {
         }
         return counter;
     }
-
 }
