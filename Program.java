@@ -3,13 +3,14 @@
 import java.util.ArrayList;
 
 public class Program {
-    private final InputScanner scanner = new InputScanner();
-    private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
-    private static ArrayList<String> finalCommands = new ArrayList<>();
+
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
     private static final int EXIT_COMMAND = 9;
-
+    private static ArrayList<String> finalCommands = new ArrayList<>();
+    private final InputScanner scanner = new InputScanner();
+    private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
+    
     public static void main(String[] args) {
         new Program().run();
     }
