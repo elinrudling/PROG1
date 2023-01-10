@@ -17,6 +17,10 @@ public class Owner {
         return dogList;
     }
 
+    public String toString() {
+        return String.format("Name: %s)", this.getName());
+    }
+
     public void addDogToOwner(Dog dog) {
         if (dog != null) {
 
