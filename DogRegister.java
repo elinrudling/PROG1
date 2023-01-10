@@ -191,6 +191,7 @@ public class DogRegister {
         Collections.swap(allDogs, smallerDog, biggerDog);
     }
 
+
     public boolean compareDogs(Dog a, Dog b) {
         if (a.getTailLength() == b.getTailLength()) {
             if (a.getName().compareToIgnoreCase(b.getName()) < 0) {
