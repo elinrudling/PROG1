@@ -6,11 +6,10 @@ public class Program {
 
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
-    private static final int EXIT_COMMAND = 9;
-    private static ArrayList<String> finalCommands = new ArrayList<>();
+    private static final ArrayList<String> lowerCaseCommands = new ArrayList<>();
     private final InputScanner scanner = new InputScanner();
     private final AssignmentTenPointOne assignmentTenPointOne = new AssignmentTenPointOne();
-    
+
     public static void main(String[] args) {
         new Program().run();
     }
@@ -24,7 +23,7 @@ public class Program {
         assignmentTenPointOne.setScanner(scanner);
 
         for (String string : COMMANDS) {
-            finalCommands.add(string.toLowerCase());
+            lowerCaseCommands.add(string.toLowerCase());
         }
 
         System.out.println("Welcome!");
@@ -34,50 +33,50 @@ public class Program {
     }
 
     private void runCommandLoop() {
-        int command;
+        String command;
         do {
             command = readCommand();
             handleCommand(command);
-        } while (command != EXIT_COMMAND);
+        } while (!command.equals("exit"));
     }
 
-    private int readCommand() {
+    private String readCommand() {
         String input;
         input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
-        while (!finalCommands.contains(input.toLowerCase())) {
+        while (!lowerCaseCommands.contains(input.toLowerCase())) {
             System.out.println("Error! Incorrect command");
             input = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
         }
-        return finalCommands.indexOf(input);
+        return input;
     }
 
-    private void handleCommand(int command) {
+    private void handleCommand(String command) {
         switch (command) {
-            case 0:
+            case "register new dog":
                 assignmentTenPointOne.registerNewDog();
                 break;
-            case 1:
+            case "register new owner":
                 assignmentTenPointOne.registerNewOwner();
                 break;
-            case 2:
+            case "remove dog":
                 assignmentTenPointOne.removeDogFromRegister();
                 break;
-            case 3:
+            case "remove owner":
                 assignmentTenPointOne.removeOwnerFromRegister();
                 break;
-            case 4:
+            case "give dog":
                 assignmentTenPointOne.giveDog();
                 break;
-            case 5:
+            case "remove owned dog":
                 assignmentTenPointOne.removeOwnedDog();
                 break;
-            case 6:
+            case "increase age":
                 assignmentTenPointOne.increaseAgeOfDog();
                 break;
-            case 7:
+            case "list dogs":
                 assignmentTenPointOne.listAllDogs();
                 break;
-            case 8:
+            case "list owners":
                 assignmentTenPointOne.listAllOwners();
                 break;
             default:
