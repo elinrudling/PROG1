@@ -30,8 +30,8 @@ public class AssignmentTenPointOne {
     public void registerNewDog() {
         String dogName = scanner.formatString("Name", "Error: the name can’t be empty");
         String dogBreed = scanner.formatString("Breed", "Error: the breed can’t be empty");
-        int dogAge = scanner.formatInt("Age", "Error: incorrect dog age");
-        int dogWeight = scanner.formatInt("Weight", "Error: incorrect dog weight");
+        int dogAge = scanner.inputInt("Age");
+        int dogWeight = scanner.inputInt("Weight");
         Dog dog = new Dog(dogName, dogBreed, dogAge, dogWeight);
         allDogs.add(dog);
         System.out.println(dogName + " added to the register");
