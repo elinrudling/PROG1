@@ -18,6 +18,12 @@ public class Program {
         runCommandLoop();
     }
 
+    /*
+    Program set up:
+        * Sets the scanner in the dogregister to be the same as in this class
+        * Fills the ArrayList consisting of verified commands with the ones added to the array COMMANDS
+        * Welcomes the user and prints all possible program options
+     */
     private void startup() {
         dogRegister.setScanner(scanner);
 
@@ -32,6 +38,10 @@ public class Program {
         }
     }
 
+    /*
+    Runs program loop to the point the user chooses the Exit command.
+    Allows user to trigger new program methods.
+     */
     private void runCommandLoop() {
         String command;
         do {
@@ -40,6 +50,9 @@ public class Program {
         } while (!command.equals("exit"));
     }
 
+    /*
+    Verifies user input and returns said input as a verified command.
+     */
     private String readCommand() {
         String command;
         command = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
@@ -50,6 +63,9 @@ public class Program {
         return command;
     }
 
+    /*
+    Takes a string and triggers methods based on the input.
+     */
     private void handleCommand(String command) {
         switch (command) {
             case "register new dog":

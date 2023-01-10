@@ -6,6 +6,9 @@ public class DogList {
 
     private Dog[] ownedDogs = new Dog[0];
 
+    /*
+    Adds a passed dog to the array of owned dogs
+     */
     public void addDogToOwnedDogs(Dog dogToAdd) {
         if (dogToAdd != null && !checkDog(dogToAdd)) {
             Dog[] newDogList = new Dog[ownedDogs.length + 1];
@@ -15,6 +18,9 @@ public class DogList {
         }
     }
 
+    /*
+    Removes a passed dog from the array of owned dogs
+     */
     public void removeDogFromOwnedDogs(Dog dogToRemove) {
         if (dogToRemove != null && checkDog(dogToRemove)) {
             Dog[] newDogList = new Dog[ownedDogs.length - 1];
@@ -34,6 +40,9 @@ public class DogList {
         }
     }
 
+    /*
+    Returns whether passed dog is owned by this owner.
+     */
     public boolean checkDog(Dog dog) {
         for (Dog d : ownedDogs) {
             if (dog.getName().equalsIgnoreCase(d.getName())) {
@@ -43,6 +52,9 @@ public class DogList {
         return false;
     }
 
+    /*
+    Prints all owned dogs' names.
+     */
     public void printOwnedDogs() {
         String[] dogNames = new String[ownedDogs.length];
         for (int i = 0; i < ownedDogs.length; i++) {
