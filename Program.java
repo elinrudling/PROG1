@@ -3,12 +3,13 @@
 import java.util.ArrayList;
 
 public class Program {
-    private static final int EXIT_COMMAND = 9;
+    private InputScanner scanner;
+    private AssignmentTenPointOne assignmentTenPointOne;
+    private static ArrayList<String> finalCommands = new ArrayList<>();
     private static final String[] COMMANDS = {"Register new dog", "Register new owner", "Remove dog", "Remove owner",
             "Give dog", "Remove owned dog", "Increase age", "List dogs", "List owners", "Exit"};
-    private static ArrayList<String> finalCommands = new ArrayList<>();
-    private AssignmentTenPointOne assignmentTenPointOne;
-    private InputScanner scanner;
+    private static final int EXIT_COMMAND = 9;
+
     public static void main(String[] args) {
         new Program().run();
     }
@@ -16,17 +17,21 @@ public class Program {
     private void run() {
         startup();
         runCommandLoop();
-        shutdown();
     }
 
     private void startup() {
-        for (String string : COMMANDS) {
-            finalCommands.add(string.toLowerCase());
-        }
         scanner = new InputScanner(System.in);
         assignmentTenPointOne = new AssignmentTenPointOne();
         assignmentTenPointOne.setScanner(scanner);
-        System.out.print("Welcome!");
+
+        for (String string : COMMANDS) {
+            finalCommands.add(string.toLowerCase());
+        }
+
+        System.out.println("Welcome!");
+        for (String command : COMMANDS) {
+            System.out.println("* " + command);
+        }
     }
 
     private void runCommandLoop() {
@@ -37,26 +42,13 @@ public class Program {
         } while (command != EXIT_COMMAND);
     }
 
-    private boolean checkIfCommandExists(String input) {
-        if (finalCommands.contains(input.toLowerCase()))
-            return true;
-
-        System.out.println("Error! Incorrect command");
-        return false;
-    }
-
     private int readCommand() {
-        System.out.println();
-        for (String command : COMMANDS) {
-            System.out.println("* " + command);
-        }
-
         String input;
-
-        do {
+        input = scanner.inputString("Enter command").toLowerCase();
+        while (!finalCommands.contains(input.toLowerCase())) {
+            System.out.println("Error! Incorrect command");
             input = scanner.inputString("Enter command").toLowerCase();
-        } while (!checkIfCommandExists(input));
-
+        }
         return finalCommands.indexOf(input);
     }
 
@@ -96,6 +88,6 @@ public class Program {
     }
 
     private void shutdown() {
-        // exit
+        System.out.println("Bye bye");
     }
 }
