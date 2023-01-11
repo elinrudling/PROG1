@@ -1,5 +1,8 @@
 // Elin Rudling elru4802
 
+//ändra metoder till privata
+//ta bort static
+
 import java.util.ArrayList;
 
 public class Program {
@@ -25,7 +28,6 @@ public class Program {
         for (String string : COMMANDS) {
             LOWER_CASE_COMMANDS.add(string.toLowerCase());
         }
-
         System.out.println("Welcome!");
 
         for (String command : COMMANDS) {

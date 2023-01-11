@@ -56,7 +56,7 @@ public class Dog {
         return this.owner;
     }
 
-    public void addOwnerToDog(Owner owner) {
+    public void setOwner(Owner owner) {
         if (this.owner == null && owner != null) {
             this.owner = owner;
             owner.addDogToOwner(this);
@@ -81,9 +81,7 @@ public class Dog {
         if (this.owner != null) {
             sb.append(", owned by " + this.getOwner().getName());
         }
-
         sb.append(")");
-
         return sb.toString();
     }
 }

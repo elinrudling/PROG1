@@ -23,12 +23,10 @@ public class Owner {
 
     public void addDogToOwner(Dog dog) {
         if (dog != null) {
-
             if (dog.getOwner() == null) {
-                dog.addOwnerToDog(this);
+                dog.setOwner(this);
             }
-
-            if (!dogList.checkDog(dog) && dog.getOwner().equals(this)) {
+            if (!dogList.checkIfDogExists(dog) && dog.getOwner().equals(this)) {
                 dogList.addDogToOwnedDogs(dog);
             }
         }
@@ -44,7 +42,7 @@ public class Owner {
     }
 
     public boolean checkIfOwnerOwnsDog(Dog dog) {
-        if (dogList.checkDog(dog)) {
+        if (dogList.checkIfDogExists(dog)) {
             return true;
         }
         return false;

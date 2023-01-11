@@ -1,7 +1,6 @@
 // Elin Rudling elru4802
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class DogRegister {
     private InputScanner scanner;
@@ -12,7 +11,6 @@ public class DogRegister {
         scanner = sc;
     }
 
-    //Registerar en ny ägare.
     public void registerNewOwner() {
         String ownerName = scanner.formatString("Name", "Error: the name can’t be empty");
         Owner owner = new Owner(ownerName);
@@ -20,7 +18,6 @@ public class DogRegister {
         System.out.println(ownerName + " added to the register");
     }
 
-    ///Registrerar en ny hund.
     public void registerNewDog() {
         String dogName = scanner.formatString("Name", "Error: the name can’t be empty");
         String dogBreed = scanner.formatString("Breed", "Error: the breed can’t be empty");
@@ -31,8 +28,7 @@ public class DogRegister {
         System.out.println(dogName + " added to the register");
     }
 
-    //Kollar om en ägare finns i registret för ägare.
-    public Owner findOwner(String nameOfOwner) {
+    private Owner findOwner(String nameOfOwner) {
         for (Owner owner : allOwners) {
             if (nameOfOwner.equalsIgnoreCase(owner.getName())) {
                 return owner;
@@ -41,8 +37,7 @@ public class DogRegister {
         return null;
     }
 
-    //Kollar om en hund finns i registret för hundar.
-    public Dog findDog(String nameOfDog) {
+    private Dog findDog(String nameOfDog) {
         for (Dog dog : allDogs) {
             if (nameOfDog.equalsIgnoreCase(dog.getName())) {
                 return dog;
@@ -51,7 +46,6 @@ public class DogRegister {
         return null;
     }
 
-    //Ökar åldern på en hund.
     public void increaseAgeOfDog() {
         String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
@@ -62,7 +56,6 @@ public class DogRegister {
         }
     }
 
-    //Tar bort en ägare från registret.
     public void removeOwnerFromRegister() {
         String nameOfOwner = scanner.formatString("Enter the name of the owner", "Error: incorrect name format");
         Owner owner = findOwner(nameOfOwner);
@@ -75,7 +68,6 @@ public class DogRegister {
         }
     }
 
-    //Tar bort en hund från registret.
     public void removeDogFromRegister() {
         String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: incorrect name format");
         Dog dog = findDog(nameOfDog);
@@ -88,7 +80,6 @@ public class DogRegister {
         }
     }
 
-    //Tar bort en ägares hundar från registret.
     private void removeOwnedDogsFromRegister(Owner owner) {
         ArrayList<Dog> tempDogList = new ArrayList<>();
         for (Dog dog : allDogs) {
@@ -101,7 +92,6 @@ public class DogRegister {
         }
     }
 
-    //Skapar en relation mellan ägare och hund.
     public void giveDog() {
         String nameOfDog = scanner.formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(nameOfDog);
@@ -119,11 +109,10 @@ public class DogRegister {
             System.out.println("Error: no such owner");
             return;
         }
-        dog.addOwnerToDog(owner);
+        dog.setOwner(owner);
         System.out.println(owner.getName() + " now owns " + dog.getName());
     }
 
-    //Tar bort relation mellan ägare och hund.
     public void removeOwnedDog() {
         String dogName = scanner.formatString("Enter the name of the dog", "Error: no dog with that name");
         Dog dog = findDog(dogName);
@@ -131,18 +120,14 @@ public class DogRegister {
             System.out.println("Error: no such dog");
             return;
         }
-
         if (dog.getOwner() == null) {
             System.out.println("Error: " + dog.getName() + " is not owned by anyone");
             return;
         }
-
         dog.removeOwnerFromDog();
-
         System.out.println(dog.getName() + " is removed");
     }
 
-    //Printar ut en lista över alla ägare i registret.
     public void listAllOwners() {
         if (allOwners.size() == 0) {
             System.out.println("Error: no owners in register");
@@ -154,7 +139,6 @@ public class DogRegister {
         }
     }
 
-    //Printar ut alla hundar från registret med en viss svanslängd.
     public void listAllDogs() {
         if (allDogs.size() == 0) {
             System.out.println("Error: no dogs in register");
@@ -175,7 +159,6 @@ public class DogRegister {
         }
     }
 
-    //Returnerar en lista av alla hundar med korrekt svanslängd.
     private ArrayList<Dog> getDogsWithCorrectTailLength(double smallestTailLength) {
         ArrayList<Dog> dogsWithCorrectTailLength = new ArrayList<>();
         for (Dog dog : allDogs) {
@@ -186,8 +169,7 @@ public class DogRegister {
         return dogsWithCorrectTailLength;
     }
 
-    //Byter plats på två hundar.
-    public boolean swapDogs(int smallerDog, int biggerDog) {
+    private boolean swapDogs(int smallerDog, int biggerDog) {
         if (smallerDog != biggerDog) {
             Dog dog = allDogs.get(smallerDog);
             allDogs.set(smallerDog, allDogs.get(biggerDog));
@@ -197,13 +179,7 @@ public class DogRegister {
         return false;
     }
 
-    public void swapDogsUsingClassLibrary(int smallerDog, int biggerDog) {
-        Collections.swap(allDogs, smallerDog, biggerDog);
-    }
-
-
-    //Jämför storleken på två hundar.
-    public boolean compareDogs(Dog a, Dog b) {
+    private boolean compareDogs(Dog a, Dog b) {
         if (a.getTailLength() == b.getTailLength()) {
             if (a.getName().compareToIgnoreCase(b.getName()) < 0) {
                 return true;
@@ -217,7 +193,7 @@ public class DogRegister {
     }
 
     //Returnerar indexet för den minsta hunden i registret från och med indexet som skicas in som parameter.
-    public int findSmallestDog(int index) {
+/*    public int findSmallestDog(int index) {
         Dog smallestDog = allDogs.get(index);
         for (int i = index + 1; i < allDogs.size(); i++) {
             if (compareDogs(allDogs.get(i), smallestDog)) {
@@ -225,10 +201,19 @@ public class DogRegister {
             }
         }
         return allDogs.indexOf(smallestDog);
+    }*/
+
+    private int findSmallestDog(int index) {
+        int smallestDog = index;
+        for (int i = index + 1; i < allDogs.size(); i++) {
+            if (compareDogs(allDogs.get(i), allDogs.get(index))) {
+                smallestDog = i;
+            }
+        }
+        return smallestDog;
     }
 
-    //Sorterar listan av alla hundar i registret.
-    public int sortDogs() {
+    private int sortDogs() {
         int counter = 0;
         for (int i = 0; i < allDogs.size() - 1; i++) {
             if (swapDogs(findSmallestDog(i), i)) {
