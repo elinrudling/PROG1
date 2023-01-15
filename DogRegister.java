@@ -192,17 +192,6 @@ public class DogRegister {
         return false;
     }
 
-    //Returnerar indexet för den minsta hunden i registret från och med indexet som skicas in som parameter.
-/*    public int findSmallestDog(int index) {
-        Dog smallestDog = allDogs.get(index);
-        for (int i = index + 1; i < allDogs.size(); i++) {
-            if (compareDogs(allDogs.get(i), smallestDog)) {
-                smallestDog = allDogs.get(i);
-            }
-        }
-        return allDogs.indexOf(smallestDog);
-    }*/
-
     private int findSmallestDog(int index) {
         int smallestDog = index;
         for (int i = index + 1; i < allDogs.size(); i++) {
