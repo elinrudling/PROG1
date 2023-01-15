@@ -19,7 +19,7 @@ public class DogList {
             Dog[] newDogList = new Dog[ownedDogs.length - 1];
             boolean found = false;
             for (int i = 0; i < ownedDogs.length; i++) {
-                if (found == false) {
+                if (!found) {
                     if (ownedDogs[i].getName().equalsIgnoreCase(dogToRemove.getName())) {
                         found = true;
                         continue;

@@ -195,7 +195,7 @@ public class DogRegister {
     private int findSmallestDog(int index) {
         int smallestDog = index;
         for (int i = index + 1; i < allDogs.size(); i++) {
-            if (compareDogs(allDogs.get(i), allDogs.get(index))) {
+            if (compareDogs(allDogs.get(i), allDogs.get(smallestDog))) {
                 smallestDog = i;
             }
         }
