@@ -42,7 +42,7 @@ public final class TestData {
     public static final String DOG_LIST_CLASS_NAME = "DogList";
     public static final String DOG_LIST_CLASS_ADD_DOG_METHOD_NAME = "addDogToOwnedDogs";
     public static final String DOG_LIST_CLASS_REMOVE_DOG_METHOD_NAME = "removeDogFromOwnedDogs";
-    public static final String DOG_LIST_CLASS_DOG_EXISTS_METHOD_NAME = "checkDog";
+    public static final String DOG_LIST_CLASS_DOG_EXISTS_METHOD_NAME = "checkIfDogExists";
 
     //Owner
     public static final String ADD_DOG_TO_OWNER_METHOD_NAME = "addDogToOwner";
@@ -50,7 +50,7 @@ public final class TestData {
     public static final String OWNS_DOG_METHOD_NAME = "checkIfOwnerOwnsDog";
 
     //Dog
-    public static final String SET_OWNER_OF_DOG_METHOD_NAME = "addOwnerToDog";
+    public static final String SET_OWNER_OF_DOG_METHOD_NAME = "setOwner";
     public static final String REMOVE_OWNER_OF_DOG_METHOD_NAME = "removeOwnerFromDog";
 
     //InputScanner
