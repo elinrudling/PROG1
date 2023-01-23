@@ -133,8 +133,8 @@ public class DogRegister {
             System.out.println("Error: no owners in register");
         } else {
             for (Owner owner : allOwners) {
-                System.out.print(owner.getName());
-                owner.getDogList().printOwnedDogs();
+                System.out.print(owner.getName() + " ");
+                System.out.println(owner.getDogList());
             }
         }
     }

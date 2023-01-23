@@ -13,8 +13,8 @@ public class Owner {
         return this.name;
     }
 
-    public DogList getDogList() {
-        return dogList;
+    public String getDogList() {
+        return dogList.getOwnedDogs();
     }
 
     public String toString() {

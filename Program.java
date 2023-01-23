@@ -1,8 +1,5 @@
 // Elin Rudling elru4802
 
-//ändra metoder till privata
-//ta bort static
-
 import java.util.ArrayList;
 
 public class Program {
@@ -21,7 +18,6 @@ public class Program {
         runCommandLoop();
     }
 
-    //Välkomnar användaren och printar ut alla kommandon.
     private void startup() {
         dogRegister.setScanner(scanner);
 
@@ -35,7 +31,6 @@ public class Program {
         }
     }
 
-    //Kör programet i en loop fram till exit command väljs av användaren.
     private void runCommandLoop() {
         String command;
         do {
@@ -44,7 +39,6 @@ public class Program {
         } while (!command.equals("exit"));
     }
 
-    //Returnerar valt kommando.
     private String readCommand() {
         String command;
         command = scanner.formatString("Enter command", "Error! Incorrect command").toLowerCase();
@@ -55,7 +49,6 @@ public class Program {
         return command;
     }
 
-    //Tar valt kommando som parameter och kallar på metod beroende på kommando
     private void handleCommand(String command) {
         switch (command) {
             case "register new dog":

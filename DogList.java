@@ -42,11 +42,11 @@ public class DogList {
         return false;
     }
 
-    public void printOwnedDogs() {
+    public String getOwnedDogs() {
         String[] dogNames = new String[ownedDogs.length];
         for (int i = 0; i < ownedDogs.length; i++) {
             dogNames[i] = ownedDogs[i].getName();
         }
-        System.out.println(" " + Arrays.toString(dogNames));
+        return Arrays.toString(dogNames);
     }
 }
